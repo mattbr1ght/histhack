@@ -24,6 +24,7 @@ func display_page(index):
 func _on_next_pressed() -> void:
 	if (current_page < len(StoryManager.journal) - 1):
 		current_page += 1
+		$PageFlip.play()
 		display_page(current_page)
 	pass # Replace with function body.
 
@@ -31,6 +32,7 @@ func _on_next_pressed() -> void:
 func _on_prev_pressed() -> void:
 	if (current_page > len(StoryManager.journal) - 1):
 		current_page -= 1
+		$PageFlip.play()
 		display_page(current_page)
 	pass # Replace with function body.
 
