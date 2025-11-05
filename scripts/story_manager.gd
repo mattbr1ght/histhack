@@ -5,9 +5,11 @@ var game
 @onready var intro_panel = load("res://assets/panels/intro_panel/panel.tscn")
 @onready var intro_panel1 = load("res://assets/panels/intro_panel/panel1.tscn")
 @onready var map_popup = load("res://assets/map_popup/map_popup.tscn")
+@onready var journal_popup = load("res://assets/journal_popup/journal_popup.tscn")
 var saski_palace_zoom_enabled = false
 
-var journal = ["witam", null, "asdsasadadsdasa"] # [title, img, desc]
+signal saski_after_time_travel
+var journal = [["witam", null, "asdsasadadsd asa"]] # [title, img, desc]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,7 +25,7 @@ func _physics_process(delta: float) -> void:
 		var zoom = clamp(
 	(10 - abs(1 - abs(Signalbus.game_node.player.position.y / 128.0)) * 1.35),
 	0.65,
-	2.0
+	1.50
 )
 
 		print(zoom)
@@ -75,6 +77,7 @@ func stage_map_first():
 	Signalbus.fade.fade_in()
 
 func stage_saski_palace():
+	game.canvas_layer.add_child(journal_popup.instantiate())
 	var time_machine = Signalbus.game_node.current_area.get_node("TimeMachine/Area2D")
 	await time_machine.done
 	saski_palace_zoom_enabled = true
@@ -82,6 +85,7 @@ func stage_saski_palace():
 	#Signalbus.game_node.current_area.get_node("Barrier").queue_free()
 	await get_tree().create_timer(1.0).timeout
 	Signalbus.fade.fade_in()
+	saski_after_time_travel.emit()
 	Signalbus.player.toggle_old_filter()
 	#Signalbus.game_node.player.toggle_old_filter()
 	pass
