@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://dirtmfwq2qowr"]
+[gd_scene load_steps=8 format=4 uid="uid://dirtmfwq2qowr"]
 
 [ext_resource type="TileSet" uid="uid://bucphppcgy5o7" path="res://assets/tilemap.tres" id="1_1q3k8"]
 [ext_resource type="PackedScene" uid="uid://ckx4jyh42448r" path="res://assets/collectible/collectible.tscn" id="2_wts28"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ccqv4rsecgdcr" path="res://scripts/minigames/timingbar/timing_minigame_prefab.tscn" id="4_kfder"]
 [ext_resource type="PackedScene" uid="uid://dspmrpsekarnj" path="res://scripts/minigames/safecracking/safe_prefab.tscn" id="5_g4tx3"]
 [ext_resource type="PackedScene" uid="uid://nxvvcsh8baew" path="res://scripts/minigames/radio_frequency/radio_prefab.tscn" id="6_2gcmh"]
+[ext_resource type="PackedScene" uid="uid://cp0fgf4ppyasx" path="res://assets/player/player.tscn" id="7_wts28"]
 
 [node name="SaskiPalace" type="Node2D"]
 
@@ -44,3 +45,5 @@ position = Vector2(-220, -1136)
 
 [node name="RadioPrefab" parent="." instance=ExtResource("6_2gcmh")]
 position = Vector2(66, -1186)
+
+[node name="Player" parent="." instance=ExtResource("7_wts28")]

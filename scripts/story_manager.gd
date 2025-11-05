@@ -79,5 +79,6 @@ func stage_saski_palace():
 	await Signalbus.fade.fade_out()
 	await get_tree().create_timer(1.0).timeout
 	Signalbus.fade.fade_in()
+	Signalbus.player.toggle_old_filter()
 	#Signalbus.game_node.player.toggle_old_filter()
 	pass

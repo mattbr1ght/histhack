@@ -8,6 +8,8 @@ signal done
 
 func interact():
 	Signalbus.safe_cracking = load("res://scripts/minigames/safecracking/SafeCracking.tscn").instantiate()
+	print(Signalbus.safe_cracking)
+	%CanvasLayer.add_child(Signalbus.safe_cracking)
 	await Signalbus.safe_cracking.done
 	Signalbus.safe_cracking.queue_free()
 	await Signalbus.game_node.dialogue_item.display_dialog(dialogue_line)
