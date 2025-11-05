@@ -77,7 +77,6 @@ func stage_map_first():
 	Signalbus.fade.fade_in()
 
 func stage_saski_palace():
-	game.canvas_layer.add_child(journal_popup.instantiate())
 	var time_machine = Signalbus.game_node.current_area.get_node("TimeMachine/Area2D")
 	await time_machine.done
 	saski_palace_zoom_enabled = true
