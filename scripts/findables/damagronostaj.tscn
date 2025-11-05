@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://g21j5r6snl0m"]
+
+[ext_resource type="Texture2D" uid="uid://nal70sed5wov" path="res://scripts/findables/damazgronostajem.png" id="2_mpdrj"]
+
+[sub_resource type="GDScript" id="GDScript_ux2mw"]
+script/source = "extends Area2D
+
+@onready var collectible_name = get_meta(\"collectible_name\")
+@onready var dialogue_line = get_meta(\"dialogue_line\")
+@onready var quest_id = get_meta(\"quest_name\")
+
+signal done
+
+func interact():
+	if !self.visible:
+		return
+	await Signalbus.game_node.dialogue_item.display_dialog(dialogue_line)
+	if !QuestManager.has_quest(quest_id):
+		Signalbus.game_node.dialogue_item.display_dialog(\"cannot-complete-quest-yet\")	
+		return
+	QuestManager.finish_quest(quest_id)
+	done.emit()
+	queue_free()
+	pass
+	
+func tooltip_enable():
+	if !self.visible:
+		return
+	Signalbus.tooltip_show(collectible_name + \"\\n Nacisnij [F] aby wejsc w interakcje\", self)
+	pass
+	
+func tooltip_disable():
+	Signalbus.tooltip_hide()
+	pass
+
+
+func _on_safe_prefab_done() -> void:
+	self.visible = true
+	pass # Replace with function body.
+"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0eljr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_mpdrj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d8wni"]
+size = Vector2(231, 308)
+
+[node name="collectible" type="Area2D"]
+script = SubResource("GDScript_ux2mw")
+metadata/collectible_name = "Dama z gronostajem"
+metadata/quest_name = "dama_z_gronostajem_found"
+metadata/dialogue_line = "saski_palace"
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0eljr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_d8wni")
