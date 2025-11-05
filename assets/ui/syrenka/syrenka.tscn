@@ -5,8 +5,8 @@
 [ext_resource type="Script" uid="uid://cb66ms0kytfje" path="res://assets/dialogue/typing_effect.gd" id="3_o12mn"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_v7b8v"]
-font_size = 7
-outline_size = 4
+font_size = 22
+outline_size = 8
 outline_color = Color(0, 0, 0, 1)
 shadow_size = 24
 shadow_color = Color(1, 1, 1, 1)
@@ -37,8 +37,16 @@ scale = Vector2(3, 3)
 layout_mode = 2
 texture = ExtResource("1_v7b8v")
 
-[node name="Label" type="Label" parent="HBoxContainer"]
+[node name="Control" type="Control" parent="HBoxContainer"]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/Control"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 7.666667
+offset_right = 95.0
+offset_bottom = 38.666668
+scale = Vector2(0.35, 0.35)
 label_settings = SubResource("LabelSettings_v7b8v")
 vertical_alignment = 1
 script = ExtResource("3_o12mn")
