@@ -115,11 +115,12 @@ shape = SubResource("RectangleShape2D_nx4cj")
 visible = false
 position = Vector2(1.1920929e-07, -1181)
 scale = Vector2(0.2, 0.2)
+metadata/dialogue_line = "dama_z_gronostajem"
+metadata/description = "Dzieło zostało ukryte w Sieniawie, po agresji III Rzeszy na Polskę. Niestety żołnierze Rzeszy znaleźli kryjówkę i ukradli obraz wywożąc go w głąb Niemiec. Po wojnie w  1945 roku komisja polsko-amerykańska odnalazła dzieło i już rok później obraz wrócił do Polski.  Obecnie \"Damę z Gronostajem\" możemy obejrzeć w Muzeum Książąt Czartoryskich w Krakowie."
 
 [node name="SafePrefab" parent="dama_quest" instance=ExtResource("6_53cg0")]
 position = Vector2(3, -1185)
 metadata/quest_name = "dama_z_gronostajem_unlocked"
-metadata/dialogue_line = "dama_z_gronostajem"
 
 [node name="madonna" type="Node" parent="."]
 
@@ -128,6 +129,7 @@ visible = false
 position = Vector2(0, -701.99994)
 scale = Vector2(0.2, 0.2)
 script = SubResource("GDScript_2hmg4")
+metadata/description = "Przed II wojną światową znajdował się w Kolekcji Lubomirskich w Przeworsku, skąd został zrabowany przez Niemców. Po wielu latach odnaleziono go w Japonii, gdzie wystawiono na aukcji w Tokio w 2022 roku – był to pierwszy przypadek odzyskania polskiej straty wojennej z Dalekiego Wschodu. Dzięki międzynarodowej współpracy obraz powrócił do Polski w 2023 roku. Obecnie znajduje się w zbiorach Muzeum Książąt Lubomirskich, będącego oddziałem Zakładu Narodowego im. Ossolińskich we Wrocławiu."
 
 [node name="RadioPrefab" parent="madonna" instance=ExtResource("9_v716f")]
 position = Vector2(-91, -720)
@@ -139,6 +141,7 @@ metadata/quest_name = "madonna_unlocked"
 visible = false
 position = Vector2(415, -759.00006)
 scale = Vector2(0.2, 0.2)
+metadata/description = "Dzieło zostało zrabowane przez Niemców podczas II wojny światowej i przez dekady uchodziło za utracone. Zostało odnalezione w niemieckim domu aukcyjnym w 2010 roku, a dzięki staraniom Ministerstwa Kultury i wsparciu PZU powróciło do Polski w 2011 roku. Obecnie obraz znajduje się w zbiorach Muzeum Narodowego w Warszawie, gdzie można go podziwiać jako jedno z najważniejszych dzieł polskiego realizmu."
 
 [node name="LockpickPrefab" parent="zydowka" instance=ExtResource("11_hbg8u")]
 position = Vector2(476.00003, -703)
