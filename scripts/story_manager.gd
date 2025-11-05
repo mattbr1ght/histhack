@@ -5,6 +5,7 @@ var game
 @onready var intro_panel = load("res://assets/panels/intro_panel/panel.tscn")
 @onready var intro_panel1 = load("res://assets/panels/intro_panel/panel1.tscn")
 @onready var map_popup = load("res://assets/map_popup/map_popup.tscn")
+var saski_palace_zoom_enabled = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,6 +15,18 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+func _physics_process(delta: float) -> void:
+	if saski_palace_zoom_enabled:
+		var zoom = clamp(
+	(10 - abs(1 - abs(Signalbus.game_node.player.position.y / 128.0)) * 1.35),
+	0.65,
+	2.0
+)
+
+		print(zoom)
+		Signalbus.game_node.player.camera.zoom = Vector2(zoom, zoom)
+
 
 func start():
 	game = Signalbus.game_node
@@ -62,8 +75,9 @@ func stage_map_first():
 func stage_saski_palace():
 	var time_machine = Signalbus.game_node.current_area.get_node("TimeMachine/Area2D")
 	await time_machine.done
+	saski_palace_zoom_enabled = true
 	await Signalbus.fade.fade_out()
 	await get_tree().create_timer(1.0).timeout
 	Signalbus.fade.fade_in()
-	Signalbus.game_node.player.toggle_old_filter()
+	#Signalbus.game_node.player.toggle_old_filter()
 	pass
