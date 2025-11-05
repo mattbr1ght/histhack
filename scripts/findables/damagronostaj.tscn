@@ -6,6 +6,7 @@
 script/source = "extends Area2D
 
 @onready var collectible_name = get_meta(\"collectible_name\")
+@onready var description = get_meta(\"description\")
 @onready var dialogue_line = get_meta(\"dialogue_line\")
 @onready var quest_id = get_meta(\"quest_name\")
 
@@ -19,6 +20,7 @@ func interact():
 		Signalbus.game_node.dialogue_item.display_dialog(\"cannot-complete-quest-yet\")	
 		return
 	QuestManager.finish_quest(quest_id)
+	Signalbus.add_journal(collectible_name, \"\")
 	done.emit()
 	queue_free()
 	pass
@@ -58,6 +60,7 @@ script = SubResource("GDScript_ux2mw")
 metadata/collectible_name = "Dama z gronostajem"
 metadata/quest_name = "dama_z_gronostajem_found"
 metadata/dialogue_line = "saski_palace"
+metadata/description = "Dama z gronostajem była ładna"
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0eljr")
