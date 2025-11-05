@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=4 uid="uid://bkx2v1vi1pyxt"]
+[gd_scene load_steps=7 format=4 uid="uid://bkx2v1vi1pyxt"]
 
 [ext_resource type="TileSet" uid="uid://bucphppcgy5o7" path="res://assets/tilemap.tres" id="1_iwjla"]
 [ext_resource type="PackedScene" uid="uid://ckx4jyh42448r" path="res://assets/collectible/collectible.tscn" id="2_r66lx"]
 [ext_resource type="Script" uid="uid://dbumsuayhs4of" path="res://assets/collectible/collectible.gd" id="3_4yp0v"]
 [ext_resource type="PackedScene" uid="uid://ccu3jh04opjpm" path="res://assets/characters/time_machine/time_machine.tscn" id="4_w2v38"]
+[ext_resource type="Script" uid="uid://vfskll8hfdon" path="res://assets/map/camera_pos.gd" id="5_2admo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w2v38"]
+size = Vector2(1024, 298)
 
 [node name="SaskiPalace" type="Node2D"]
 
@@ -39,3 +43,14 @@ position = Vector2(0, -416)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="kolizja"]
 polygon = PackedVector2Array(-704, -1152, -512, -1152, -512, 320, 512, 320, 512, -1152, 704, -1152, 704, 440, -704, 440)
+
+[node name="CameraPos" type="Area2D" parent="."]
+position = Vector2(-16, -1336)
+script = ExtResource("5_2admo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraPos"]
+position = Vector2(16, 139)
+shape = SubResource("RectangleShape2D_w2v38")
+
+[connection signal="area_entered" from="CameraPos" to="CameraPos" method="_on_area_entered"]
+[connection signal="area_exited" from="CameraPos" to="CameraPos" method="_on_area_exited"]
