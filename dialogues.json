@@ -1,6 +1,6 @@
 {
 	"arcana_intro_part_1": [
-		"Nacisnij spacje, aby kontynuować",
+		"Nacisnij spacje, aby kontynuować. (Wszystkie dialogi kontynuuje się spacja)",
 		"Warszawa...",
 		"Miasto, które pamięta więcej, niż chce powiedzieć.",
 		"Kamienice szepczą, jeśli wiesz, jak ich słuchać.",
@@ -28,8 +28,12 @@
 		"Tam możesz obejrzeć odkryte dzieła",
 		"Jestem nadal rozwijana",
 		"I nie mam pełnej funkcjonalności",
+		"Po wybraniu lokalizacji, znajdziesz dziennik -",
+		"w lewym gornym rogu ekranu.",
+		"Nacisnij go by dowiedziec się wiecej",
 		"Aby przejść dalej",
-		"Wybierz lokalizacje na mapie"
+		"Wybierz lokalizacje na mapie",
+		"Na poczatek polecam Palac Saski"
 	],
 	"syrenka_niema": [
 		"Niestety ta część mapy jest jeszcze zamknięta"
