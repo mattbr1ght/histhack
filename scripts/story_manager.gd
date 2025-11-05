@@ -7,6 +7,8 @@ var game
 @onready var map_popup = load("res://assets/map_popup/map_popup.tscn")
 var saski_palace_zoom_enabled = false
 
+var journal = ["witam", null, "asdsasadadsdasa"] # [title, img, desc]
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
