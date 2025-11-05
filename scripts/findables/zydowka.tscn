@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://oubmt6pk0np"]
+[gd_scene load_steps=5 format=3 uid="uid://byl2oymii3en0"]
 
 [ext_resource type="Texture2D" uid="uid://cs4dl1dmquc0g" path="res://scripts/findables/zydowkazpomaranczami.png" id="1_5lhmf"]
 
@@ -20,7 +20,7 @@ func interact():
 		Signalbus.game_node.dialogue_item.display_dialog(\"cannot-complete-quest-yet\")	
 		return
 	QuestManager.finish_quest(quest_id)
-	Signalbus.add_journal(collectible_name, \"\")
+	Signalbus.add_journal(collectible_name, description, $TextureRect.texture)
 	done.emit()
 	queue_free()
 	pass
@@ -62,8 +62,17 @@ metadata/dialogue_line = "zydowka"
 metadata/description = "Zydowka z pomaranczaami byla ladna"
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
+visible = false
 sprite_frames = SubResource("SpriteFrames_0eljr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 1)
 shape = SubResource("RectangleShape2D_d8wni")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_5lhmf")

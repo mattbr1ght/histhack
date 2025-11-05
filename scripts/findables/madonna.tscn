@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7m7pyd1ljcl2"]
+[gd_scene load_steps=5 format=3 uid="uid://c7m7pyd1ljcl2"]
 
 [ext_resource type="Texture2D" uid="uid://tf26ev6f7ptk" path="res://scripts/findables/madonnazdzieciatkiem.png" id="1_s6o3o"]
-[ext_resource type="Texture2D" uid="uid://nal70sed5wov" path="res://scripts/findables/damazgronostajem.png" id="2_s3mpk"]
 
 [sub_resource type="GDScript" id="GDScript_ux2mw"]
 script/source = "extends Area2D
@@ -21,7 +20,7 @@ func interact():
 		Signalbus.game_node.dialogue_item.display_dialog(\"cannot-complete-quest-yet\")	
 		return
 	QuestManager.finish_quest(quest_id)
-	Signalbus.add_journal(collectible_name, description, ImageTexture.new())
+	Signalbus.add_journal(collectible_name, description, $TextureRect.texture)
 	done.emit()
 	queue_free()
 	pass
@@ -77,4 +76,4 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_s3mpk")
+texture = ExtResource("1_s6o3o")
