@@ -53,7 +53,7 @@ func _process(delta: float) -> void:
 		reverse = false
 
 	# handle space press
-	if Input.is_action_just_pressed("ui_accept"): # SPACE by default
+	if Input.is_action_just_pressed("ui_accept"):
 		check_hit()
 
 
@@ -63,8 +63,10 @@ func check_hit() -> void:
 	if abs(val - marker_pos) <= tolerance:
 		done.emit()
 		show_result(true)
+		await get_tree().create_timer(1.5).timeout
 	else:
 		show_result(false)
+	
 
 
 func show_result(success: bool) -> void:

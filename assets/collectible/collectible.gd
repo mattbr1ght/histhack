@@ -1,8 +1,9 @@
 extends Area2D
 
 @onready var collectible_name = get_meta("collectible_name")
-var dialogue_line = get_meta("dialogue_line")
-var quest_id = get_meta("quest_name")
+@onready var dialogue_line = get_meta("dialogue_line")
+@onready var quest_id = get_meta("quest_name")
+
 signal done
 
 func interact():

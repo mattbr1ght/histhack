@@ -11,6 +11,7 @@ extends CharacterBody2D
 @onready var interact_button = null
 @onready var last_pos: Vector2 = Vector2.ZERO
 @onready var is_old_filter_on = false
+@onready var ui = %CanvasLayer
 
 # Movement input axes
 var move_input: Vector2 = Vector2.ZERO

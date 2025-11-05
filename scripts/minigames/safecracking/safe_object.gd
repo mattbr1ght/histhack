@@ -1,15 +1,21 @@
 extends Area2D
 
 @onready var collectible_name = get_meta("collectible_name")
-var dialogue_line = get_meta("dialogue_line")
-var quest_id = get_meta("quest_name")
+@onready var dialogue_line = get_meta("dialogue_line")
+@onready var quest_id = get_meta("quest_name")
+
+var active: bool = false
 
 signal done
 
 func interact():
+	if active:
+		return
 	Signalbus.safe_cracking = load("res://scripts/minigames/safecracking/SafeCracking.tscn").instantiate()
 	print(Signalbus.safe_cracking)
-	%CanvasLayer.add_child(Signalbus.safe_cracking)
+	Signalbus.player.ui.add_child(Signalbus.safe_cracking)
+	active = true
+	tooltip_disable()
 	await Signalbus.safe_cracking.done
 	Signalbus.safe_cracking.queue_free()
 	await Signalbus.game_node.dialogue_item.display_dialog(dialogue_line)
@@ -22,6 +28,8 @@ func interact():
 	pass
 	
 func tooltip_enable():
+	if active:
+		return
 	Signalbus.tooltip_show(collectible_name + "\n Nacisnij [F] aby wejsc w interakcje", self)
 	pass
 	
