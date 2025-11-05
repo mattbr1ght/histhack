@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://bkx2v1vi1pyxt"]
+[gd_scene load_steps=16 format=4 uid="uid://bkx2v1vi1pyxt"]
 
 [ext_resource type="TileSet" uid="uid://bucphppcgy5o7" path="res://assets/tilemap.tres" id="1_iwjla"]
 [ext_resource type="PackedScene" uid="uid://ccu3jh04opjpm" path="res://assets/characters/time_machine/time_machine.tscn" id="4_w2v38"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://nxvvcsh8baew" path="res://scripts/minigames/radio_frequency/radio_prefab.tscn" id="9_v716f"]
 [ext_resource type="PackedScene" uid="uid://oubmt6pk0np" path="res://scripts/findables/zydowka.tscn" id="10_hdokc"]
 [ext_resource type="PackedScene" uid="uid://ccqv4rsecgdcr" path="res://scripts/minigames/timingbar/timing_minigame_prefab.tscn" id="11_hbg8u"]
+[ext_resource type="AudioStream" uid="uid://bged4ouaysdk8" path="res://assets/audio/City3.mp3" id="12_v716f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w2v38"]
 size = Vector2(1024, 298)
@@ -147,6 +148,12 @@ metadata/description = "Dzieło zostało zrabowane przez Niemców podczas II woj
 position = Vector2(476.00003, -703)
 scale = Vector2(1.5, 1.5)
 metadata/quest_name = "zydowka_unlocked"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_v716f")
+volume_db = -5.0
+autoplay = true
+parameters/looping = true
 
 [connection signal="area_entered" from="collidable/CameraPos" to="collidable/CameraPos" method="_on_area_entered"]
 [connection signal="area_exited" from="collidable/CameraPos" to="collidable/CameraPos" method="_on_area_exited"]
