@@ -7,7 +7,7 @@ var selected_text = []
 var in_progress = false
 var temporary_solution = 0
 
-@onready var text_label = $HBoxContainer/Label
+@onready var text_label = $HBoxContainer/Control/Label
 
 signal skip_input
 

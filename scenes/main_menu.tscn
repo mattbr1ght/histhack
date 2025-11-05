@@ -35,7 +35,7 @@ grow_vertical = 2
 script = ExtResource("1_l6cm7")
 
 [node name="BACKGROUND" type="TextureRect" parent="."]
-modulate = Color(0.65012825, 0.6501283, 0.65012825, 1)
+modulate = Color(0.3647059, 0.6509804, 1, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -71,25 +71,10 @@ theme_override_font_sizes/font_size = 48
 text = "The Lost Treasures"
 horizontal_alignment = 1
 
-[node name="PLAY" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_constants/outline_size = 8
-theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = SubResource("StyleBoxEmpty_bqqt6")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_wu84c")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_8ln24")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_rtw2f")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_oa1go")
-text = "zagraj"
-
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PLAY"]
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
 show_behind_parent = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 texture = ExtResource("4_wu84c")
 stretch_mode = 5
 
@@ -102,10 +87,49 @@ theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 36
 text = "Opcje"
 
-[node name="EXIT" type="Button" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="PLAY" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/outline_size = 8
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 23
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bqqt6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_wu84c")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8ln24")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_rtw2f")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_oa1go")
+text = "zagraj"
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/PLAY"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -98.585
+offset_top = -95.175
+offset_right = 0.41500854
+offset_bottom = 7.824997
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.405, 1.405)
+texture = ExtResource("4_wu84c")
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+show_behind_parent = true
+layout_mode = 2
+texture = ExtResource("4_wu84c")
+stretch_mode = 5
+
+[node name="EXIT" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 23
 theme_override_styles/normal = SubResource("StyleBoxEmpty_tbmy8")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_jk1qb")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_5dd4i")
@@ -113,17 +137,22 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_lgwnu")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_flqon")
 text = "wyjdź"
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/EXIT"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/EXIT"]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -98.585
+offset_top = -43.675
+offset_right = 7.415001
+offset_bottom = -43.675
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.405, 1.405)
 texture = ExtResource("4_wu84c")
 stretch_mode = 5
 
-[connection signal="pressed" from="VBoxContainer/PLAY" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/OPTIONS" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="VBoxContainer/EXIT" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/PLAY" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/EXIT" to="." method="_on_exit_pressed"]
