@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://bkx2v1vi1pyxt"]
+[gd_scene load_steps=15 format=4 uid="uid://bkx2v1vi1pyxt"]
 
 [ext_resource type="TileSet" uid="uid://bucphppcgy5o7" path="res://assets/tilemap.tres" id="1_iwjla"]
 [ext_resource type="PackedScene" uid="uid://ccu3jh04opjpm" path="res://assets/characters/time_machine/time_machine.tscn" id="4_w2v38"]
@@ -7,12 +7,55 @@
 [ext_resource type="Script" path="res://assets/map/barrier.gd" id="5_nx4cj"]
 [ext_resource type="PackedScene" uid="uid://be5nq78yiil1i" path="res://scripts/minigames/safecracking/SafeCracking.tscn" id="6_53cg0"]
 [ext_resource type="PackedScene" uid="uid://g21j5r6snl0m" path="res://scripts/findables/damagronostaj.tscn" id="7_nx4cj"]
+[ext_resource type="PackedScene" uid="uid://c3mvneucn0lub" path="res://scripts/findables/madonna.tscn" id="8_2hmg4"]
+[ext_resource type="PackedScene" uid="uid://nxvvcsh8baew" path="res://scripts/minigames/radio_frequency/radio_prefab.tscn" id="9_v716f"]
+[ext_resource type="PackedScene" uid="uid://oubmt6pk0np" path="res://scripts/findables/zydowka.tscn" id="10_hdokc"]
+[ext_resource type="PackedScene" uid="uid://ccqv4rsecgdcr" path="res://scripts/minigames/timingbar/timing_minigame_prefab.tscn" id="11_hbg8u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w2v38"]
 size = Vector2(1024, 298)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nx4cj"]
 size = Vector2(1024, 58)
+
+[sub_resource type="GDScript" id="GDScript_2hmg4"]
+script/source = "extends Area2D
+
+@onready var collectible_name = get_meta(\"collectible_name\")
+@onready var description = get_meta(\"description\")
+@onready var dialogue_line = get_meta(\"dialogue_line\")
+@onready var quest_id = get_meta(\"quest_name\")
+
+signal done
+
+func interact():
+	if !self.visible:
+		return
+	await Signalbus.game_node.dialogue_item.display_dialog(dialogue_line)
+	if !QuestManager.has_quest(quest_id):
+		Signalbus.game_node.dialogue_item.display_dialog(\"cannot-complete-quest-yet\")	
+		return
+	QuestManager.finish_quest(quest_id)
+	Signalbus.add_journal(collectible_name, \"\")
+	done.emit()
+	queue_free()
+	pass
+	
+func tooltip_enable():
+	if !self.visible:
+		return
+	Signalbus.tooltip_show(collectible_name + \"\\n Nacisnij [F] aby wejsc w interakcje\", self)
+	pass
+	
+func tooltip_disable():
+	Signalbus.tooltip_hide()
+	pass
+
+
+func _on_radio_prefab_done() -> void:
+	self.visible = true
+	pass # Replace with function body.
+"
 
 [node name="SaskiPalace" type="Node2D"]
 
@@ -66,16 +109,43 @@ script = ExtResource("5_53cg0")
 position = Vector2(0, -536)
 shape = SubResource("RectangleShape2D_nx4cj")
 
-[node name="SafePrefab" parent="." instance=ExtResource("6_53cg0")]
-offset_top = -1180.0
-offset_bottom = -1180.0
-metadata/quest_name = "dama_z_gronostajem_unlocked"
+[node name="dama_quest" type="Node" parent="."]
 
-[node name="collectible" parent="." instance=ExtResource("7_nx4cj")]
+[node name="collectible" parent="dama_quest" instance=ExtResource("7_nx4cj")]
 visible = false
 position = Vector2(1.1920929e-07, -1181)
 scale = Vector2(0.2, 0.2)
 
+[node name="SafePrefab" parent="dama_quest" instance=ExtResource("6_53cg0")]
+position = Vector2(1, -1172)
+metadata/quest_name = "dama_z_gronostajem_unlocked"
+metadata/dialogue_line = "dama_z_gronostajem"
+
+[node name="madonna" type="Node" parent="."]
+
+[node name="collectible" parent="madonna" instance=ExtResource("8_2hmg4")]
+visible = false
+position = Vector2(0, -701.99994)
+scale = Vector2(0.2, 0.2)
+script = SubResource("GDScript_2hmg4")
+
+[node name="RadioPrefab" parent="madonna" instance=ExtResource("9_v716f")]
+position = Vector2(-91, -720)
+metadata/quest_name = "madonna_unlocked"
+
+[node name="zydowka" type="Node" parent="."]
+
+[node name="collectible" parent="zydowka" instance=ExtResource("10_hdokc")]
+visible = false
+position = Vector2(415, -759.00006)
+scale = Vector2(0.2, 0.2)
+
+[node name="LockpickPrefab" parent="zydowka" instance=ExtResource("11_hbg8u")]
+position = Vector2(476.00003, -703)
+scale = Vector2(1.5, 1.5)
+
 [connection signal="area_entered" from="collidable/CameraPos" to="collidable/CameraPos" method="_on_area_entered"]
 [connection signal="area_exited" from="collidable/CameraPos" to="collidable/CameraPos" method="_on_area_exited"]
-[connection signal="done" from="SafePrefab" to="collectible" method="_on_safe_prefab_done"]
+[connection signal="done" from="dama_quest/SafePrefab" to="dama_quest/collectible" method="_on_safe_prefab_done"]
+[connection signal="done" from="madonna/RadioPrefab" to="madonna/collectible" method="_on_radio_prefab_done"]
+[connection signal="done" from="zydowka/LockpickPrefab" to="zydowka/collectible" method="_on_lockpick_prefab_done"]
