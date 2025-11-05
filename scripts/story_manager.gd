@@ -44,6 +44,8 @@ func advance(stage):
 			stage_map_first()
 		"saski_palace":
 			stage_saski_palace()
+		"synagogue":
+			stage_synagogue()
 
 func stage_intro():
 	Signalbus.fade.fade_in()
@@ -87,4 +89,7 @@ func stage_saski_palace():
 	saski_after_time_travel.emit()
 	Signalbus.player.toggle_old_filter()
 	#Signalbus.game_node.player.toggle_old_filter()
+	pass
+
+func stage_synagogue():
 	pass

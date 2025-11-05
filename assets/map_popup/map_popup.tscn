@@ -1,9 +1,51 @@
-[gd_scene load_steps=5 format=3 uid="uid://b8phu6hi5q1kj"]
+[gd_scene load_steps=6 format=3 uid="uid://b8phu6hi5q1kj"]
 
 [ext_resource type="Texture2D" uid="uid://cdt3dme7oen6l" path="res://assets/map_popup/map.png" id="1_mlu4o"]
 [ext_resource type="Script" uid="uid://cn7m5bydlge4c" path="res://assets/map_popup/map_popup.gd" id="1_vtw0h"]
 [ext_resource type="PackedScene" uid="uid://dj0ohj8l02dn4" path="res://assets/map_popup/flag.tscn" id="3_gfdsx"]
 [ext_resource type="PackedScene" uid="uid://74bb1bgbuw6d" path="res://assets/ui/syrenka/syrenka.tscn" id="4_rx2e4"]
+
+[sub_resource type="GDScript" id="GDScript_rx2e4"]
+script/source = "extends Control
+
+var destination: String = \"\"
+var done: bool = false
+
+func _ready() -> void:
+	done = false
+
+
+func _input(event: InputEvent) -> void:
+	if destination != \"\" and not done:
+		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			var syrenka = get_parent().get_node(\"Syrenka\")
+
+			syrenka.display_dialog(\"syrenka_niema\")
+			
+			return 
+			if get_parent().has_method(\"goto\"):
+				get_parent().goto(destination)
+				
+				destination = \"\"
+			else:
+				push_warning(\"Parent node has no 'goto()' method!\")
+			done = true
+			# If you use a signal system, you could also call:
+			# Signalbus.game_node.change_area(destination)
+
+
+func _on_panel_mouse_entered() -> void:
+	if has_meta(\"display_name\"):
+		$Label.text = str(get_meta(\"display_name\"))
+	if has_meta(\"destination\"):
+		destination = str(get_meta(\"destination\"))
+
+
+func _on_panel_mouse_exited() -> void:
+	$Label.text = \"\"
+	destination = \"\"
+	done = false # Reset so it can be clicked again later if needed
+"
 
 [node name="MapPopup" type="Control"]
 layout_mode = 3
@@ -36,6 +78,7 @@ offset_bottom = -20.0
 layout_mode = 1
 offset_left = -64.0
 offset_right = -64.0
+script = SubResource("GDScript_rx2e4")
 metadata/display_name = "Wielka synagoga"
 metadata/destination = "synagogue"
 
