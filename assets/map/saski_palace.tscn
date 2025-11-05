@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ckx4jyh42448r" path="res://assets/collectible/collectible.tscn" id="2_r66lx"]
 [ext_resource type="PackedScene" uid="uid://ccu3jh04opjpm" path="res://assets/characters/time_machine/time_machine.tscn" id="4_w2v38"]
 [ext_resource type="Script" uid="uid://vfskll8hfdon" path="res://assets/map/camera_pos.gd" id="5_2admo"]
-[ext_resource type="Script" uid="uid://uxt2pt11kn8m" path="res://assets/map/area_2d.gd" id="5_53cg0"]
+[ext_resource type="Script" path="res://assets/map/area_2d.gd" id="5_53cg0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w2v38"]
 size = Vector2(1024, 298)
