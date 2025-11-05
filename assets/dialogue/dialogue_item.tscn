@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://d25vo5dxlr6cn"]
+
+[ext_resource type="Script" uid="uid://133j50wpjppk" path="res://assets/dialogue/dialogue_item.gd" id="1_v622k"]
+[ext_resource type="FontFile" uid="uid://sdbu81r5fgfl" path="res://assets/fonts/PixCon.ttf" id="2_csl2q"]
+[ext_resource type="Script" uid="uid://cb66ms0kytfje" path="res://assets/dialogue/typing_effect.gd" id="3_n5f5q"]
+
+[node name="dialogue_item" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_v622k")
+
+[node name="text" type="Label" parent="."]
+texture_filter = 1
+texture_repeat = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -343.0
+offset_top = -198.0
+offset_right = 343.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_csl2q")
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+script = ExtResource("3_n5f5q")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="text"]
+scale = Vector2(0.1665, 0.03325)
+action = "skip"
+
+[node name="bg" type="TextureRect" parent="text"]
+layout_mode = 0
+offset_left = -235.0
+offset_top = -455.0
+offset_right = -195.0
+offset_bottom = -415.0
+
+[node name="sound" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+volume_db = -8.667
+panning_strength = 0.0

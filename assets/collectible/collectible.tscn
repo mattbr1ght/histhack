@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckx4jyh42448r"]
+
+[ext_resource type="Texture2D" uid="uid://cojmsv8id2jgn" path="res://assets/map_popup/flag.png" id="1_8uknf"]
+
+[sub_resource type="GDScript" id="GDScript_tbgn2"]
+script/source = "extends Area2D
+
+@onready var cname = get_meta(\"collectible_name\")
+
+signal done
+
+func interact():
+	#await Signalbus.dialogue_item.display_dialog(\"plan_lekcji_found\")
+	
+	# QuestManager.progress_quest(\"plan_lekcji\")	
+	done.emit()
+	queue_free()
+	pass
+	
+func tooltip_enable():
+	Signalbus.tooltip_show(cname + \"\\n Nacisnij [F] aby wejsc w interakcje\", self)
+	pass
+	
+func tooltip_disable():
+	Signalbus.tooltip_hide()
+	pass
+"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0eljr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_8uknf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ckfd3"]
+radius = 16.0
+
+[node name="collectible" type="Area2D"]
+script = SubResource("GDScript_tbgn2")
+metadata/collectible_name = "Pałac Saski"
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0eljr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ckfd3")

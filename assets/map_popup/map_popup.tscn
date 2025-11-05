@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8phu6hi5q1kj"]
+
+[ext_resource type="Texture2D" uid="uid://cdt3dme7oen6l" path="res://assets/map_popup/map.png" id="1_mlu4o"]
+[ext_resource type="Script" uid="uid://cn7m5bydlge4c" path="res://assets/map_popup/map_popup.gd" id="1_vtw0h"]
+[ext_resource type="PackedScene" uid="uid://dj0ohj8l02dn4" path="res://assets/map_popup/flag.tscn" id="3_gfdsx"]
+[ext_resource type="PackedScene" uid="uid://74bb1bgbuw6d" path="res://assets/ui/syrenka/syrenka.tscn" id="4_rx2e4"]
+
+[node name="MapPopup" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vtw0h")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_mlu4o")
+metadata/destination = ""
+metadata/display_name = ""
+
+[node name="Flag" parent="." instance=ExtResource("3_gfdsx")]
+layout_mode = 1
+
+[node name="Syrenka" parent="." instance=ExtResource("4_rx2e4")]
+layout_mode = 1

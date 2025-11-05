@@ -1,0 +1,170 @@
+[gd_scene load_steps=17 format=3 uid="uid://cp0fgf4ppyasx"]
+
+[ext_resource type="Script" uid="uid://8omttbvah2xw" path="res://assets/player/player.gd" id="1_m2mll"]
+[ext_resource type="Texture2D" uid="uid://ci7r236u0q7dw" path="res://assets/characters/mc/mc_back_1.png" id="2_m2mll"]
+[ext_resource type="Texture2D" uid="uid://qt23km7q0qe7" path="res://assets/characters/mc/mc_back_0.png" id="3_hai6l"]
+[ext_resource type="Texture2D" uid="uid://cqvs44v0nmrct" path="res://assets/characters/mc/mc_back_2.png" id="4_vlpqo"]
+[ext_resource type="Texture2D" uid="uid://drlivf6cvskt7" path="res://assets/characters/mc/mc_front_0.png" id="5_0eov8"]
+[ext_resource type="Texture2D" uid="uid://cest1ttfap2ve" path="res://assets/characters/mc/mc_front_2.png" id="6_g7aau"]
+[ext_resource type="Texture2D" uid="uid://caiuhe3u5ohd7" path="res://assets/characters/mc/mc_side_1.png" id="7_d61i2"]
+[ext_resource type="Texture2D" uid="uid://dq2pb57trorhi" path="res://assets/characters/mc/mc_side_0.png" id="8_yx3jh"]
+[ext_resource type="Texture2D" uid="uid://clg8x0ov06yws" path="res://assets/characters/mc/mc_side_2.png" id="9_4t7cd"]
+[ext_resource type="Texture2D" uid="uid://bwgughh4hn4kl" path="res://assets/characters/mc/mc_side_3.png" id="10_hai6l"]
+[ext_resource type="Material" uid="uid://b04sots1qhhy4" path="res://assets/shaders/old_filter.tres" id="11_hai6l"]
+[ext_resource type="PackedScene" uid="uid://f5bhniaxojsk" path="res://scripts/minigames/radio_frequency/radio_frequency.tscn" id="13_0eov8"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0eov8"]
+load_path = "res://.godot/imported/mc_front_1.png-6875dcdbf4b7d7033d460cfc6aa2d115.ctex"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7o0gm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_0eov8")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_m2mll")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hai6l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_m2mll")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vlpqo")
+}],
+"loop": true,
+"name": &"w_back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_0eov8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_0eov8")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_0eov8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_g7aau")
+}],
+"loop": true,
+"name": &"w_front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_yx3jh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_d61i2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_4t7cd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_hai6l")
+}],
+"loop": true,
+"name": &"w_side",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jggqw"]
+size = Vector2(11, 5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h7gmp"]
+radius = 18.0278
+
+[node name="Player" type="CharacterBody2D"]
+top_level = true
+script = ExtResource("1_m2mll")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_7o0gm")
+animation = &"w_front"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+process_mode = 3
+position_smoothing_enabled = true
+
+[node name="Control" type="Control" parent="Camera2D"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D/Control"]
+layer = 0
+
+[node name="OldTimeyEffect" type="ColorRect" parent="Camera2D/Control/CanvasLayer"]
+material = ExtResource("11_hai6l")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="quests_label" type="RichTextLabel" parent="Camera2D/Control/CanvasLayer"]
+offset_left = 1007.00006
+offset_top = 24.0
+offset_right = 1109.0
+offset_bottom = 54.0
+scale = Vector2(1.2, 1.2)
+text = "QUESTS:
+"
+horizontal_alignment = 2
+
+[node name="quests" type="RichTextLabel" parent="Camera2D/Control/CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -245.0
+offset_top = 66.0
+offset_right = 55.0
+offset_bottom = 370.0
+grow_horizontal = 0
+scale = Vector2(0.75, 0.75)
+text = "[ ] do this
+[ ] and this
+[ ] and this too
+[ ] find something
+[ ] too much quests and it's breaking lines
+"
+horizontal_alignment = 2
+
+[node name="RadioFrequency" parent="Camera2D/Control/CanvasLayer" instance=ExtResource("13_0eov8")]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, 28.5)
+shape = SubResource("RectangleShape2D_jggqw")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_h7gmp")
+
+[node name="footstep_a" type="AudioStreamPlayer2D" parent="."]
+volume_db = -20.0
+
+[node name="door_a" type="AudioStreamPlayer2D" parent="."]
+volume_db = -5.0
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_shape_exited" from="Area2D" to="." method="_on_area_2d_area_shape_exited"]

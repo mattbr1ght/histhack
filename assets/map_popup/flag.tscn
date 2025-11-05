@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://dj0ohj8l02dn4"]
+
+[ext_resource type="Script" uid="uid://cbseamcks7wv1" path="res://assets/map_popup/flag.gd" id="1_gkfv7"]
+[ext_resource type="Texture2D" uid="uid://cojmsv8id2jgn" path="res://assets/map_popup/flag.png" id="2_m0x8s"]
+
+[node name="Flag" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -44.0
+offset_right = -40.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gkfv7")
+metadata/display_name = "Pałac Saski"
+metadata/destination = "saski_palace"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_m0x8s")
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -24.0
+offset_top = 8.0
+offset_right = 36.0
+offset_bottom = 68.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -50.0
+offset_top = 40.0
+offset_right = 70.0
+offset_bottom = 100.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="Panel" to="." method="_on_panel_mouse_entered"]
+[connection signal="mouse_exited" from="Panel" to="." method="_on_panel_mouse_exited"]

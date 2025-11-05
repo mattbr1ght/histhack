@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=4 uid="uid://c1l81ia7xs8jl"]
+
+[ext_resource type="TileSet" uid="uid://bucphppcgy5o7" path="res://assets/tilemap.tres" id="1_dq5f1"]
+
+[node name="Mokotow" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAP//AQADAAMAAAABAP//AQAEAAMAAAACAP//AQADAAMAAAADAP//AQAEAAMAAAAEAP//AQADAAMAAAAFAP//AQAEAAMAAAADAP7/AQAEAAMAACAEAP7/AQADAAMAACAAAP7/AQADAAMAACABAP7/AQAEAAMAACACAP7/AQADAAMAACAFAP7/AQAEAAMAACAGAAEAAQAFAAIAAAAHAAEAAQAGAAIAAAA=")
+tile_set = ExtResource("1_dq5f1")

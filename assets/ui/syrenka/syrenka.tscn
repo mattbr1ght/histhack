@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://74bb1bgbuw6d"]
+
+[ext_resource type="Script" uid="uid://c6cjy3pwysky0" path="res://assets/ui/syrenka/syrenka.gd" id="1_texjs"]
+[ext_resource type="Texture2D" uid="uid://b1tmq5yh3xf84" path="res://assets/ui/syrenka/syrenka.png" id="1_v7b8v"]
+[ext_resource type="Script" uid="uid://cb66ms0kytfje" path="res://assets/dialogue/typing_effect.gd" id="3_o12mn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_v7b8v"]
+font_size = 7
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 24
+shadow_color = Color(1, 1, 1, 1)
+shadow_offset = Vector2(0, 0)
+
+[node name="Syrenka" type="Control"]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_texjs")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -108.0
+offset_right = 36.0
+offset_bottom = -76.0
+grow_vertical = 0
+scale = Vector2(3, 3)
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_v7b8v")
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_v7b8v")
+vertical_alignment = 1
+script = ExtResource("3_o12mn")

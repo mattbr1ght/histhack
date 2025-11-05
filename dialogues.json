@@ -1,0 +1,104 @@
+{
+	"arcana_intro_part_1": [
+		"Warszawa...",
+		"Miasto, które pamięta więcej, niż chce powiedzieć.",
+		"Kamienice szepczą, jeśli wiesz, jak ich słuchać.",
+		"Nie każda strata jest wieczna...",
+		"Czasem przeszłość sama cię3 odnajduje."
+	],
+	"arcana_intro_part_2": [
+		"Pod gruzami miasta wciąż drzemie echo dawnych dni.",
+		"W zniszczonych murach ukryto ślady obrazów, rzeźb i pieśni, które nie zdążyły przetrwać wojny.",
+		"Niektóre wspomnienia spłonęły, inne zostały wywiezione daleko poza granice kraju.",
+		"Ale są też takie, które czekają, aż ktoś ponownie je odnajdzie."
+	],
+	"arcana_intro_part_3": [
+		"Twoja podróż zaczyna się wśród ruin i archiwów, gdzie przeszłość i teraźniejszość splatają się w jedno.",
+		"Musisz słuchać uważnie – każde słowo, każdy dokument, każdy fragment cegły może być wskazówką.",
+		"Nie chodzi tylko o odzyskanie utraconych dzieł, lecz o przywrócenie pamięci ludziom, którzy je tworzyli.",
+		"Bo w Warszawie nic nie znika na zawsze – wystarczy chcieć usłyszeć jej głos."
+	],
+	"syrenka_1": [
+		"Witaj",
+		"Mam na imie Sava-AI",
+		"Jestem twoim inteligentnym asystentem",
+		"Z miłą chęcią odpowiem na każde twoje pytanie",
+		"Jestem nadal rozwijana",
+		"I nie mam pełnej funkcjonalności",
+		"Aby przejść dalej",
+		"Wybierz lokalizacje na mapie"
+	],
+	"time_machine_1": [
+		"Przenoszenie do 1944...",
+		"3 . . . 2 . . . 1 . . ."
+	],
+	"pracownia_1": [
+		"Dobrze, mamy to zabezpieczone.",
+		"Ostrożnie z tą ścianą — tynk odpada, ale pod nim może coś być.",
+		"...",
+		"Spójrz.",
+		"To list...",
+		"Z datą... sierpień 1944.",
+		"Podpis... S. Wójcik.",
+		"To przecież nazwisko mojej babci..."
+	],
+	"noc_w_pracowni": [
+		"Zostałem po godzinach.",
+		"Chciałem tylko sprawdzić ten list.",
+		"Ale kiedy go dotknąłem...",
+		"...",
+		"Świat jakby się zatrzymał.",
+		"Cisza. Zapach dymu. Krzyk gdzieś z daleka.",
+		"I wtedy zobaczyłem ich..."
+	],
+	"wizja_powstanie": [
+		"*Warszawa, 1944*",
+		"Młody mężczyzna w zakurzonej koszuli biegnie przez podwórze.",
+		"„Zanieś to na Wilczą! Powiedz im, że kamienica jeszcze stoi!”",
+		"Obrócił się... miał moje oczy.",
+		"Nie rozumiem...",
+		"To niemożliwe..."
+	],
+	"mentor_scene": [
+		"Dzień dobry, panie Janie.",
+		"Wspominał pan o jakimś odkryciu?",
+		"Tak... pod tynkiem znaleźliśmy list, zdjęcia i fragment malowidła.",
+		"Stare, ale zachowane zaskakująco dobrze.",
+		"Wie pan... historia czasem nie chce być zapomniana.",
+		"Trzeba ją tylko umieć odczytać."
+	],
+	"muzeum_archiwum": [
+		"Znalazłem kopię manifestu z powstania.",
+		"Podpis ten sam — S. Wójcik.",
+		"To był mój pradziadek.",
+		"Artysta, który malował w ukryciu, gdy wokół płonęło miasto.",
+		"Jego obrazy miały przetrwać wojnę.",
+		"Ale nigdy ich nie odnaleziono."
+	],
+	"odkrycie_artefaktu": [
+		"Na odwrocie jednej z fotografii widać symbol.",
+		"Trójkąt i litera 'V'.",
+		"W kącie — data i adres.",
+		"To dokładnie tu, gdzie stoję.",
+		"...",
+		"Ściana...",
+		"Za nią coś jest."
+	],
+	"powrot": [
+		"*Dotykasz cegły, a świat rozmywa się w świetle.*",
+		"Słyszysz głosy, śmiech, huk samolotów.",
+		"Znowu tam jesteś.",
+		"Ale tym razem nie jako obserwator.",
+		"Jako on."
+	],
+	"finale": [
+		"Znalazłem to, czego szukałem.",
+		"Nie złoto, nie obraz.",
+		"Tylko wspomnienie.",
+		"Historia, która przetrwała we mnie.",
+		"Nie każda strata jest wieczna."
+	],
+	"cannot-complete-quest-yet": [
+		"Nie mozesz jeszcze ukonczyc tego zadania"
+	]
+}
