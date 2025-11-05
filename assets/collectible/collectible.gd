@@ -3,7 +3,6 @@ extends Area2D
 @onready var collectible_name = get_meta("collectible_name")
 var dialogue_line = get_meta("dialogue_line")
 var quest_id = get_meta("quest_name")
-
 signal done
 
 func interact():
@@ -11,7 +10,7 @@ func interact():
 	if !QuestManager.has_quest(quest_id):
 		Signalbus.game_node.dialogue_item.display_dialog("cannot-complete-quest-yet")	
 		return
-	QuestManager.finish_quest(quest_id)	
+	QuestManager.finish_quest(quest_id)
 	done.emit()
 	queue_free()
 	pass

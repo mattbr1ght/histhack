@@ -91,7 +91,4 @@ func _on_area_2d_area_shape_exited(area_rid, area: Area2D, area_shape_index: int
 		area.tooltip_disable()
 
 func toggle_old_filter() -> void:
-	if is_old_filter_on:
-		old_effect.visible = false
-	else:
-		old_effect.visible = true
+	old_effect.visible = !is_old_filter_on
