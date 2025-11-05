@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://0ew1se0qnlas"]
+[gd_scene load_steps=17 format=3 uid="uid://0ew1se0qnlas"]
 
 [ext_resource type="Script" uid="uid://dhs4vhjyssvq7" path="res://assets/journal_popup/journal_popup.gd" id="1_uwk4r"]
+[ext_resource type="Texture2D" uid="uid://boxrwvhx153y0" path="res://assets/panels/intro_panel/splash1.png" id="2_2f4p4"]
 [ext_resource type="Texture2D" uid="uid://chpm47uiou20j" path="res://assets/journal_popup/book_empty.png" id="2_eu3t1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eu3t1"]
@@ -38,6 +39,17 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uwk4r")
 
+[node name="Bg" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_2f4p4")
+expand_mode = 2
+stretch_mode = 6
+
 [node name="BookBg" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -67,6 +79,7 @@ f
 f"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Image" type="TextureRect" parent="."]
 layout_mode = 1

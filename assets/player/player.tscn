@@ -157,11 +157,12 @@ text = "[ ] do this
 horizontal_alignment = 2
 
 [node name="Journal" type="Button" parent="Camera2D/Control/CanvasLayer"]
-z_index = 2035
+z_index = -1
 offset_left = 64.0
 offset_top = 64.0
 offset_right = 128.0
 offset_bottom = 129.0
+mouse_filter = 1
 theme_override_styles/normal = SubResource("StyleBoxEmpty_vlpqo")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_0eov8")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_g7aau")
