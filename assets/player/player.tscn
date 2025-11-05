@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cp0fgf4ppyasx"]
+[gd_scene load_steps=16 format=3 uid="uid://cp0fgf4ppyasx"]
 
 [ext_resource type="Script" uid="uid://8omttbvah2xw" path="res://assets/player/player.gd" id="1_m2mll"]
 [ext_resource type="Texture2D" uid="uid://ci7r236u0q7dw" path="res://assets/characters/mc/mc_back_1.png" id="2_m2mll"]
@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://clg8x0ov06yws" path="res://assets/characters/mc/mc_side_2.png" id="9_4t7cd"]
 [ext_resource type="Texture2D" uid="uid://bwgughh4hn4kl" path="res://assets/characters/mc/mc_side_3.png" id="10_hai6l"]
 [ext_resource type="Material" uid="uid://b04sots1qhhy4" path="res://assets/shaders/old_filter.tres" id="11_hai6l"]
-[ext_resource type="PackedScene" uid="uid://f5bhniaxojsk" path="res://scripts/minigames/radio_frequency/radio_frequency.tscn" id="13_0eov8"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0eov8"]
 load_path = "res://.godot/imported/mc_front_1.png-6875dcdbf4b7d7033d460cfc6aa2d115.ctex"
@@ -106,9 +105,11 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D/Control"]
+unique_name_in_owner = true
 layer = 0
 
 [node name="OldTimeyEffect" type="ColorRect" parent="Camera2D/Control/CanvasLayer"]
+visible = false
 material = ExtResource("11_hai6l")
 anchors_preset = 15
 anchor_right = 1.0
@@ -144,16 +145,13 @@ text = "[ ] do this
 "
 horizontal_alignment = 2
 
-[node name="RadioFrequency" parent="Camera2D/Control/CanvasLayer" instance=ExtResource("13_0eov8")]
-visible = false
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.5, 28.5)
 shape = SubResource("RectangleShape2D_jggqw")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Player" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(-1, 0)
 shape = SubResource("CircleShape2D_h7gmp")
 
@@ -166,5 +164,5 @@ volume_db = -5.0
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="area_shape_exited" from="Area2D" to="." method="_on_area_2d_area_shape_exited"]
+[connection signal="area_entered" from="Player" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_shape_exited" from="Player" to="." method="_on_area_2d_area_shape_exited"]

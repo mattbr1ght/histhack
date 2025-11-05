@@ -11,6 +11,10 @@ var scenes = {
 	"saski_palace": [load("res://assets/map/saski_palace.tscn")]
 }
 
+var safe_cracking: Node
+var timing_bar: Node
+var radio_frequency: Node
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -35,3 +39,11 @@ func tooltip_hide():
 	if (tt_item != null):
 		tt_item.queue_free()
 		tt_state = false
+
+func take_screenshot():
+	var img = get_viewport().get_texture().get_image()
+	return img
+	var time = Time.get_datetime_string_from_system().replace(":", "-")
+	var path = "user://screenshot_%s.png" % time
+	img.save_png(path)
+	print("Screenshot saved to:", path)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://0ew1se0qnlas"]
+[gd_scene load_steps=3 format=3 uid="uid://0ew1se0qnlas"]
 
 [ext_resource type="Script" uid="uid://dhs4vhjyssvq7" path="res://assets/journal_popup/journal_popup.gd" id="1_uwk4r"]
+[ext_resource type="Texture2D" uid="uid://chpm47uiou20j" path="res://assets/journal_popup/book_empty.png" id="2_eu3t1"]
 
 [node name="JournalPopup" type="Control"]
 layout_mode = 3
@@ -10,3 +11,54 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uwk4r")
+
+[node name="BookBg" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(577, 324)
+texture = ExtResource("2_eu3t1")
+stretch_mode = 5
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 224.0
+offset_top = 104.0
+offset_right = -592.0
+offset_bottom = -472.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "f
+f
+f"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Image" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 200.0
+offset_right = 568.0
+offset_bottom = 472.0
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Description" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 592.0
+offset_top = 128.0
+offset_right = -224.0
+offset_bottom = -176.0
+grow_horizontal = 2
+grow_vertical = 2

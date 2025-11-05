@@ -2,18 +2,20 @@ extends Control
 
 @export var target_freq := 50.0
 @export var tolerance := 3.0
-@export var difficulty := 0.3 # how fast signal drops off when off-tune
-@export var tune_speed := 60.0 # slider auto drift speed (if you want chaos)
+@export var difficulty := 0.3
+@export var tune_speed := 60.0
 @export var auto_drift := false
 
 var active := true
+
+signal done
 
 func _ready():
 	randomize()
 	target_freq = randf_range(20, 80)
 	$FrequencySlider.min_value = 0
 	$FrequencySlider.max_value = 100
-	$StatusLabel.text = "Find the right frequency..."
+	$StatusLabel.text = "Znajdź dobra częstotliwosć"
 	$SignalStrength.value = 0
 
 
@@ -34,9 +36,10 @@ func _process(delta):
 
 func check_success(dist: float):
 	if dist <= tolerance:
-		$StatusLabel.text = "✅ Transmission clear!"
+		$StatusLabel.text = "Komunikacja w toku!"
+		done.emit()
 	else:
-		$StatusLabel.text = "❌ Interference too strong!"
+		$StatusLabel.text = "Zła częstotliwosć!"
 	active = false
 	await get_tree().create_timer(1.5).timeout
 	start_new_round()
@@ -44,5 +47,5 @@ func check_success(dist: float):
 
 func start_new_round():
 	target_freq = randf_range(20, 80)
-	$StatusLabel.text = "Next code incoming..."
+	$StatusLabel.text = "Nasłuchiwanie... Dostosuj częstotliwosć"
 	active = true

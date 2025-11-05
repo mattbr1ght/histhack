@@ -10,6 +10,8 @@ var reverse := false
 var running := false
 var marker_pos := 0.0
 
+signal done
+
 func _ready() -> void:
 	randomize()
 	$slider.min_value = min_value
@@ -51,7 +53,7 @@ func _process(delta: float) -> void:
 		reverse = false
 
 	# handle space press
-	if Input.is_action_just_pressed("ui_accept"): # SPACE by default
+	if Input.is_action_just_pressed("ui_accept"):
 		check_hit()
 
 
@@ -59,16 +61,19 @@ func check_hit() -> void:
 	running = false
 	var val = $slider.value
 	if abs(val - marker_pos) <= tolerance:
+		done.emit()
 		show_result(true)
+		await get_tree().create_timer(1.5).timeout
 	else:
 		show_result(false)
+	
 
 
 func show_result(success: bool) -> void:
 	if success:
-		print("✅ Hit! You nailed it.")
+		print("Hit")
 	else:
-		print("❌ Missed. Marker was at %.2f, you clicked at %.2f." % [marker_pos, $slider.value])
+		print("Missed. Marker was at %.2f, you clicked at %.2f." % [marker_pos, $slider.value])
 	
 	await get_tree().create_timer(1.0).timeout
 	start_round()

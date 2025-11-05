@@ -21,6 +21,6 @@ func _ready() -> void:
 func change_area(new_area) -> void:
 	new_area = Signalbus.scenes[new_area]
 	current_area = new_area[0].instantiate()
-	if self.current_area != null:
-		self.remove_child(self.current_area)
+	if current_area != null:
+		self.remove_child(current_area)
 	self.add_child(current_area)

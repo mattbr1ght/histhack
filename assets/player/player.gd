@@ -11,6 +11,7 @@ extends CharacterBody2D
 @onready var interact_button = null
 @onready var last_pos: Vector2 = Vector2.ZERO
 @onready var is_old_filter_on = false
+@onready var ui = %CanvasLayer
 
 # Movement input axes
 var move_input: Vector2 = Vector2.ZERO
@@ -74,10 +75,11 @@ func _handle_animation() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("interact") and $Area2D.has_overlapping_areas():
-		var areas = $Area2D.get_overlapping_areas()
-		if areas.size() > 0 and "interact" in areas[0]:
-			areas[0].interact()
+	if Input.is_action_just_pressed("interact") and $Player.has_overlapping_areas():
+		var areas = $Player.get_overlapping_areas()
+		for area in areas:
+			if "interact" in area:
+				area.interact()
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
@@ -90,7 +92,4 @@ func _on_area_2d_area_shape_exited(area_rid, area: Area2D, area_shape_index: int
 		area.tooltip_disable()
 
 func toggle_old_filter() -> void:
-	if is_old_filter_on:
-		old_effect.visible = false
-	else:
-		old_effect.visible = true
+	old_effect.visible = !is_old_filter_on

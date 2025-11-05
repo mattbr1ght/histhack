@@ -7,6 +7,8 @@ var game
 @onready var map_popup = load("res://assets/map_popup/map_popup.tscn")
 var saski_palace_zoom_enabled = false
 
+var journal = ["witam", null, "asdsasadadsdasa"] # [title, img, desc]
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -77,7 +79,9 @@ func stage_saski_palace():
 	await time_machine.done
 	saski_palace_zoom_enabled = true
 	await Signalbus.fade.fade_out()
+	#Signalbus.game_node.current_area.get_node("Barrier").queue_free()
 	await get_tree().create_timer(1.0).timeout
 	Signalbus.fade.fade_in()
+	Signalbus.player.toggle_old_filter()
 	#Signalbus.game_node.player.toggle_old_filter()
 	pass

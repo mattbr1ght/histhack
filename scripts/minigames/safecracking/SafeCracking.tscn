@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://be5nq78yiil1i"]
+
+[ext_resource type="Texture2D" uid="uid://djpvnmpb28uu4" path="res://scripts/minigames/safecracking/dial.png" id="1_4atjl"]
+[ext_resource type="Script" uid="uid://qaxjro2bhy4i" path="res://scripts/minigames/safecracking/safe_cracking.gd" id="1_ttusl"]
+
+[node name="SafeCracking" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ttusl")
+tolerance = 25.0
+
+[node name="Dial" type="TextureRect" parent="."]
+z_index = 1
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.43209878
+anchor_right = 0.5
+anchor_bottom = 0.43209878
+offset_left = -189.0
+offset_top = -189.0
+offset_right = 189.0
+offset_bottom = 189.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(189, 189)
+texture = ExtResource("1_4atjl")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LockProgress" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -129.0
+offset_top = -55.0
+offset_right = -25.0
+offset_bottom = -22.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Status" type="Label" parent="."]
+layout_mode = 0
+offset_left = 378.0
+offset_top = 547.0
+offset_right = 778.0
+offset_bottom = 615.0
+text = "Nacisnij spacje w odpowiednim
+momencie"
+horizontal_alignment = 1
