@@ -108,5 +108,13 @@
 	],
 	"cannot-complete-quest-yet": [
 		"Nie mozesz jeszcze ukonczyc tego zadania"
+	],
+	"dama_z_gronostajem": [
+		"Znaleziono obraz Leonarda da Vinci 'Dama z Gronostajem'.",
+		"Dzieło zostało ukryte w Sieniawie, po agresji III Rzeszy na Polskę.",
+		"Niestety żołnierze Rzeszy znaleźli kryjówkę i ukradli obraz wywożąc go w głąb Niemiec.",
+		"Po wojnie w  1945 roku komisja polsko-amerykańska odnalazła dzieło",
+		"i już rok później obraz wrócił do Polski.",
+		"Obecnie 'Damę z Gronostajem' możemy obejrzeć w Muzeum Książąt Czartoryskich w Krakowie."
 	]
 }

@@ -24,7 +24,7 @@ func _physics_process(delta: float) -> void:
 	if saski_palace_zoom_enabled:
 		var zoom = clamp(
 	(10 - abs(1 - abs(Signalbus.game_node.player.position.y / 128.0)) * 1.35),
-	0.65,
+	1.00,
 	1.50
 )
 
