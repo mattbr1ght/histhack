@@ -77,6 +77,7 @@ func stage_saski_palace():
 	await time_machine.done
 	saski_palace_zoom_enabled = true
 	await Signalbus.fade.fade_out()
+	Signalbus.game_node.current_area.get_node("Barrier").queue_free()
 	await get_tree().create_timer(1.0).timeout
 	Signalbus.fade.fade_in()
 	#Signalbus.game_node.player.toggle_old_filter()

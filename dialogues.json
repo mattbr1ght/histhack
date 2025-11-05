@@ -32,6 +32,14 @@
 		"Przenoszenie do 1944...",
 		"3 . . . 2 . . . 1 . . ."
 	],
+  "saski_palace_story": [
+	"Pałac Saski w Warszawie, zbudowany w XVII wieku przez Jana II Kazimierza, był jednym z najważniejszych zabytków stolicy.",
+	"Pełnił funkcję siedziby królewskiej i centrum politycznego, a także był symbolem narodowym.",
+	"Zniszczony podczas II wojny światowej, po powstaniu warszawskim, ruiny pałacu zostały rozebrane w latach 60. XX wieku.",
+	"Dziś na jego miejscu znajduje się Plac Piłsudskiego i pomnik Nieznanego Żołnierza.",
+    "Pałac Saski pozostaje symbolem utraconej Warszawy i jej historii."
+  ],
+
 	"pracownia_1": [
 		"Dobrze, mamy to zabezpieczone.",
 		"Ostrożnie z tą ścianą — tynk odpada, ale pod nim może coś być.",

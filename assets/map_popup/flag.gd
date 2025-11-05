@@ -15,6 +15,8 @@ func _input(event: InputEvent) -> void:
 	if (destination != ""):
 		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			get_parent().goto(destination)
+			destination = ""
+			
 			# Signalbus.game_node.change_area(destination)
 		
 

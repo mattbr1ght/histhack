@@ -76,8 +76,9 @@ func _handle_animation() -> void:
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("interact") and $Player.has_overlapping_areas():
 		var areas = $Player.get_overlapping_areas()
-		if areas.size() > 0 and "interact" in areas[0]:
-			areas[0].interact()
+		for area in areas:
+			if "interact" in area:
+				area.interact()
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
