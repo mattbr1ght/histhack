@@ -93,3 +93,9 @@ func _on_area_2d_area_shape_exited(area_rid, area: Area2D, area_shape_index: int
 
 func toggle_old_filter() -> void:
 	old_effect.visible = !is_old_filter_on
+
+
+func _on_journal_pressed() -> void:
+	Signalbus.game_node.canvas_layer.add_child(StoryManager.journal_popup.instantiate())
+	self.visible = false
+	pass # Replace with function body.

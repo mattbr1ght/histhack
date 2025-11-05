@@ -27,19 +27,16 @@ metadata/display_name = ""
 
 [node name="Flag" parent="." instance=ExtResource("3_gfdsx")]
 layout_mode = 1
-offset_left = -41.0
-offset_top = -47.0
-offset_right = -41.0
-offset_bottom = -47.0
+offset_left = -24.0
+offset_top = -20.0
+offset_right = -24.0
+offset_bottom = -20.0
 
 [node name="Flag2" parent="." instance=ExtResource("3_gfdsx")]
-visible = false
 layout_mode = 1
-offset_left = -55.0
-offset_top = -56.0
-offset_right = -55.0
-offset_bottom = -56.0
-metadata/display_name = "Cyrk Braci Staniewskich  "
+offset_left = -64.0
+offset_right = -64.0
+metadata/display_name = "Wielka synagoga"
 
 [node name="Syrenka" parent="." instance=ExtResource("4_rx2e4")]
 layout_mode = 1

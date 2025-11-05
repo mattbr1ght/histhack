@@ -33,3 +33,8 @@ func _on_prev_pressed() -> void:
 		current_page -= 1
 		display_page(current_page)
 	pass # Replace with function body.
+
+
+func _on_close_pressed() -> void:
+	queue_free()
+	pass # Replace with function body.

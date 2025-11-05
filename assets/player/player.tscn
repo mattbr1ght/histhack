@@ -145,6 +145,14 @@ text = "[ ] do this
 "
 horizontal_alignment = 2
 
+[node name="Journal" type="Button" parent="Camera2D/Control/CanvasLayer"]
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 128.0
+offset_bottom = 128.0
+theme_override_font_sizes/font_size = 31
+text = "📚"
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.5, 28.5)
 shape = SubResource("RectangleShape2D_jggqw")

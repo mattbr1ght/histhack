@@ -125,5 +125,14 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_wxuus")
 theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0w8st")
 text = "<<"
 
+[node name="Close" type="Button" parent="."]
+layout_mode = 1
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 88.0
+offset_bottom = 88.0
+text = "X"
+
 [connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
 [connection signal="pressed" from="Prev" to="." method="_on_prev_pressed"]
+[connection signal="pressed" from="Close" to="." method="_on_close_pressed"]
