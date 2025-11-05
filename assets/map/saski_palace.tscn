@@ -3,9 +3,9 @@
 [ext_resource type="TileSet" uid="uid://bucphppcgy5o7" path="res://assets/tilemap.tres" id="1_iwjla"]
 [ext_resource type="PackedScene" uid="uid://ccu3jh04opjpm" path="res://assets/characters/time_machine/time_machine.tscn" id="4_w2v38"]
 [ext_resource type="Script" uid="uid://vfskll8hfdon" path="res://assets/map/camera_pos.gd" id="5_2admo"]
-[ext_resource type="Script" uid="uid://uxt2pt11kn8m" path="res://assets/map/area_2d.gd" id="5_53cg0"]
-[ext_resource type="Script" path="res://assets/map/barrier.gd" id="5_nx4cj"]
-[ext_resource type="PackedScene" uid="uid://be5nq78yiil1i" path="res://scripts/minigames/safecracking/SafeCracking.tscn" id="6_53cg0"]
+[ext_resource type="Script" path="res://assets/map/area_2d.gd" id="5_53cg0"]
+[ext_resource type="Script" uid="uid://cdgit2nxyx71x" path="res://assets/map/barrier.gd" id="5_nx4cj"]
+[ext_resource type="PackedScene" uid="uid://dspmrpsekarnj" path="res://scripts/minigames/safecracking/safe_prefab.tscn" id="6_53cg0"]
 [ext_resource type="PackedScene" uid="uid://g21j5r6snl0m" path="res://scripts/findables/damagronostaj.tscn" id="7_nx4cj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w2v38"]
@@ -66,14 +66,14 @@ script = ExtResource("5_53cg0")
 position = Vector2(0, -536)
 shape = SubResource("RectangleShape2D_nx4cj")
 
-[node name="SafePrefab" parent="." instance=ExtResource("6_53cg0")]
-position = Vector2(0, -1180)
-metadata/quest_name = "dama_z_gronostajem_unlocked"
-
 [node name="collectible" parent="." instance=ExtResource("7_nx4cj")]
 visible = false
 position = Vector2(1.1920929e-07, -1181)
 scale = Vector2(0.2, 0.2)
+
+[node name="SafePrefab" parent="." instance=ExtResource("6_53cg0")]
+position = Vector2(1, -1172)
+metadata/quest_name = "dama_z_gronostajem_unlocked"
 
 [connection signal="area_entered" from="collidable/CameraPos" to="collidable/CameraPos" method="_on_area_entered"]
 [connection signal="area_exited" from="collidable/CameraPos" to="collidable/CameraPos" method="_on_area_exited"]
