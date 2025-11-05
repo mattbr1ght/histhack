@@ -2,10 +2,12 @@
 
 [ext_resource type="TileSet" uid="uid://bucphppcgy5o7" path="res://assets/tilemap.tres" id="1_iwjla"]
 [ext_resource type="PackedScene" uid="uid://ckx4jyh42448r" path="res://assets/collectible/collectible.tscn" id="2_r66lx"]
-[ext_resource type="PackedScene" uid="uid://ccqv4rsecgdcr" path="res://scripts/minigames/timingbar/timing_minigame_prefab.tscn" id="4_53cg0"]
+[ext_resource type="Script" uid="uid://dbumsuayhs4of" path="res://assets/collectible/collectible.gd" id="3_4yp0v"]
 [ext_resource type="PackedScene" uid="uid://ccu3jh04opjpm" path="res://assets/characters/time_machine/time_machine.tscn" id="4_w2v38"]
-[ext_resource type="PackedScene" uid="uid://dspmrpsekarnj" path="res://scripts/minigames/safecracking/safe_prefab.tscn" id="5_nx4cj"]
-[ext_resource type="PackedScene" uid="uid://nxvvcsh8baew" path="res://scripts/minigames/radio_frequency/radio_prefab.tscn" id="6_jrcj1"]
+[ext_resource type="Script" uid="uid://vfskll8hfdon" path="res://assets/map/camera_pos.gd" id="5_2admo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w2v38"]
+size = Vector2(1024, 298)
 
 [node name="SaskiPalace" type="Node2D"]
 
@@ -32,6 +34,7 @@ polygon = PackedVector2Array(-702, -1150, -34, -1152, -34, -1260, 32, -1259, 36,
 
 [node name="collectible" parent="." instance=ExtResource("2_r66lx")]
 position = Vector2(6, -1091)
+script = ExtResource("3_4yp0v")
 
 [node name="TimeMachine" parent="." instance=ExtResource("4_w2v38")]
 position = Vector2(0, -416)
@@ -40,3 +43,14 @@ position = Vector2(0, -416)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="kolizja"]
 polygon = PackedVector2Array(-704, -1152, -512, -1152, -512, 320, 512, 320, 512, -1152, 704, -1152, 704, 440, -704, 440)
+
+[node name="CameraPos" type="Area2D" parent="."]
+position = Vector2(-16, -1336)
+script = ExtResource("5_2admo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraPos"]
+position = Vector2(16, 139)
+shape = SubResource("RectangleShape2D_w2v38")
+
+[connection signal="area_entered" from="CameraPos" to="CameraPos" method="_on_area_entered"]
+[connection signal="area_exited" from="CameraPos" to="CameraPos" method="_on_area_exited"]
