@@ -33,6 +33,7 @@ offset_right = -41.0
 offset_bottom = -47.0
 
 [node name="Flag2" parent="." instance=ExtResource("3_gfdsx")]
+visible = false
 layout_mode = 1
 offset_left = -55.0
 offset_top = -56.0
