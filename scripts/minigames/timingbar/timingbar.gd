@@ -10,6 +10,8 @@ var reverse := false
 var running := false
 var marker_pos := 0.0
 
+signal done
+
 func _ready() -> void:
 	randomize()
 	$slider.min_value = min_value
@@ -59,6 +61,7 @@ func check_hit() -> void:
 	running = false
 	var val = $slider.value
 	if abs(val - marker_pos) <= tolerance:
+		done.emit()
 		show_result(true)
 	else:
 		show_result(false)
@@ -66,9 +69,9 @@ func check_hit() -> void:
 
 func show_result(success: bool) -> void:
 	if success:
-		print("✅ Hit! You nailed it.")
+		print("Hit")
 	else:
-		print("❌ Missed. Marker was at %.2f, you clicked at %.2f." % [marker_pos, $slider.value])
+		print("Missed. Marker was at %.2f, you clicked at %.2f." % [marker_pos, $slider.value])
 	
 	await get_tree().create_timer(1.0).timeout
 	start_round()

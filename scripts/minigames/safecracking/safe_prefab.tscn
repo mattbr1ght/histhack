@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dspmrpsekarnj"]
+
+[ext_resource type="Texture2D" uid="uid://dr4ipuel8fg8w" path="res://scripts/minigames/safecracking/safe.png" id="1_5o1et"]
+[ext_resource type="Script" uid="uid://bn54jtf1ax4iv" path="res://scripts/minigames/safecracking/safe_object.gd" id="2_5084p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4b7fn"]
+size = Vector2(61, 45)
+
+[node name="SafePrefab" type="Area2D"]
+script = ExtResource("2_5084p")
+metadata/collectible_name = "Sejf"
+metadata/quest_name = "safe_quest"
+metadata/dialogue_line = "safe_quest"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_5o1et")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 6.5)
+shape = SubResource("RectangleShape2D_4b7fn")

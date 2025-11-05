@@ -16,6 +16,8 @@ func has_quest(quest_id:  String) -> bool:
 	return !current_quests.filter(func(quest): return quest.id == quest_id).is_empty()
 
 func render():
+	if quest_text == null:
+		return
 	var res = ""
 	for quest in current_quests:
 		res += "[ ] " + quest.name + "\n"

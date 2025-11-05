@@ -11,6 +11,10 @@ var scenes = {
 	"saski_palace": [load("res://assets/map/saski_palace.tscn")]
 }
 
+var safe_cracking: Node
+var timing_bar: Node
+var radio_frequency: Node
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

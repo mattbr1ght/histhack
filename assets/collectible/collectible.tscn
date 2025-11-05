@@ -1,30 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ckx4jyh42448r"]
 
 [ext_resource type="Texture2D" uid="uid://cojmsv8id2jgn" path="res://assets/map_popup/flag.png" id="1_8uknf"]
-
-[sub_resource type="GDScript" id="GDScript_tbgn2"]
-script/source = "extends Area2D
-
-@onready var cname = get_meta(\"collectible_name\")
-
-signal done
-
-func interact():
-	#await Signalbus.dialogue_item.display_dialog(\"plan_lekcji_found\")
-	
-	# QuestManager.progress_quest(\"plan_lekcji\")	
-	done.emit()
-	queue_free()
-	pass
-	
-func tooltip_enable():
-	Signalbus.tooltip_show(cname + \"\\n Nacisnij [F] aby wejsc w interakcje\", self)
-	pass
-	
-func tooltip_disable():
-	Signalbus.tooltip_hide()
-	pass
-"
+[ext_resource type="Script" uid="uid://dbumsuayhs4of" path="res://assets/collectible/collectible.gd" id="1_b5iem"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0eljr"]
 animations = [{
@@ -41,8 +18,10 @@ animations = [{
 radius = 16.0
 
 [node name="collectible" type="Area2D"]
-script = SubResource("GDScript_tbgn2")
+script = ExtResource("1_b5iem")
 metadata/collectible_name = "Pałac Saski"
+metadata/quest_name = "saski_palace"
+metadata/dialogue_line = "saski_palace"
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0eljr")
