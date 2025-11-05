@@ -5,9 +5,10 @@ var game
 @onready var intro_panel = load("res://assets/panels/intro_panel/panel.tscn")
 @onready var intro_panel1 = load("res://assets/panels/intro_panel/panel1.tscn")
 @onready var map_popup = load("res://assets/map_popup/map_popup.tscn")
+@onready var journal_popup = load("res://assets/journal_popup/journal_popup.tscn")
 var saski_palace_zoom_enabled = false
 
-var journal = ["witam", null, "asdsasadadsdasa"] # [title, img, desc]
+var journal = [["witam", null, "asdsasadadsd asa"]] # [title, img, desc]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -75,6 +76,7 @@ func stage_map_first():
 	Signalbus.fade.fade_in()
 
 func stage_saski_palace():
+	game.canvas_layer.add_child(journal_popup.instantiate())
 	var time_machine = Signalbus.game_node.current_area.get_node("TimeMachine/Area2D")
 	await time_machine.done
 	saski_palace_zoom_enabled = true

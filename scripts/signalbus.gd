@@ -42,8 +42,11 @@ func tooltip_hide():
 
 func take_screenshot():
 	var img = get_viewport().get_texture().get_image()
-	return img
+	return ImageTexture.create_from_image(img)
 	var time = Time.get_datetime_string_from_system().replace(":", "-")
 	var path = "user://screenshot_%s.png" % time
 	img.save_png(path)
 	print("Screenshot saved to:", path)
+
+func add_journal(title, description):
+	StoryManager.journal.append([title, take_screenshot(), description])
