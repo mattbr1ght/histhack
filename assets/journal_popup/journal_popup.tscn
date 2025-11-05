@@ -1,6 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://0ew1se0qnlas"]
+[gd_scene load_steps=11 format=3 uid="uid://0ew1se0qnlas"]
 
 [ext_resource type="Script" uid="uid://dhs4vhjyssvq7" path="res://assets/journal_popup/journal_popup.gd" id="1_uwk4r"]
+[ext_resource type="Texture2D" uid="uid://chpm47uiou20j" path="res://assets/journal_popup/book_empty.png" id="2_eu3t1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eu3t1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2f4p4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_17gpb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qeqgq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o5gya"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ea60u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wxuus"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0w8st"]
 
 [node name="JournalPopup" type="Control"]
 layout_mode = 3
@@ -10,3 +27,103 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uwk4r")
+
+[node name="BookBg" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(577, 324)
+texture = ExtResource("2_eu3t1")
+stretch_mode = 5
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 224.0
+offset_top = 104.0
+offset_right = -592.0
+offset_bottom = -472.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "f
+f
+f"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Image" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 224.0
+offset_top = 187.0
+offset_right = -592.0
+offset_bottom = -184.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Description" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 592.0
+offset_top = 128.0
+offset_right = -224.0
+offset_bottom = -176.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+
+[node name="Next" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -192.0
+offset_top = -72.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_eu3t1")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_2f4p4")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_17gpb")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_qeqgq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_o5gya")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ea60u")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_wxuus")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0w8st")
+text = ">>"
+
+[node name="Prev" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -72.0
+offset_right = 192.0
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_eu3t1")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_2f4p4")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_17gpb")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_qeqgq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_o5gya")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ea60u")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_wxuus")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0w8st")
+text = "<<"
+
+[connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="Prev" to="." method="_on_prev_pressed"]
