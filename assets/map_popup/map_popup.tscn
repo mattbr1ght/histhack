@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cdt3dme7oen6l" path="res://assets/map_popup/map.png" id="1_mlu4o"]
 [ext_resource type="Script" uid="uid://cn7m5bydlge4c" path="res://assets/map_popup/map_popup.gd" id="1_vtw0h"]
-[ext_resource type="PackedScene" uid="uid://dj0ohj8l02dn4" path="res://assets/map_popup/flag.tscn" id="3_gfdsx"]
+[ext_resource type="PackedScene" path="res://assets/map_popup/flag.tscn" id="3_gfdsx"]
 [ext_resource type="PackedScene" uid="uid://74bb1bgbuw6d" path="res://assets/ui/syrenka/syrenka.tscn" id="4_rx2e4"]
 
 [node name="MapPopup" type="Control"]
