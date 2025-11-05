@@ -5,9 +5,9 @@ var current_quests = [
 	{"name": "Zdobadz Dame z gronotajem", "id": "dama_z_gronostajem_found"}, 
 	{"name": "Odblokuj sejf z Dama z gronostajem", "id": "dama_z_gronostajem_unlocked"},
 	{"name": "Zdobadz Madonne z dzieciatkiem", "id": "madonna_found"}, 
-	{"name": "Odblokuj pokoj z Madonna z dzieciatkiem", "id": "madonna_unlocked"},
+	{"name": "Skontaktuj sie z konserwatorem Madonny z dzieciatkiem", "id": "madonna_unlocked"},
 	{"name": "Zdobadz Zydowke z pomaranczami", "id": "zydowka_found"}, 
-	{"name": "Skontaktuj sie z konserwatorem Zydowki z pomaranczami", "id": "zydowka_unlocked"},
+	{"name": "Odblokuj pokoj z Zydowka z pomaranczami", "id": "zydowka_unlocked"},
 ]
 
 # Called when the node enters the scene tree for the first time.
