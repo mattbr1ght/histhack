@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://0ew1se0qnlas"]
+[gd_scene load_steps=17 format=3 uid="uid://0ew1se0qnlas"]
 
 [ext_resource type="Script" uid="uid://dhs4vhjyssvq7" path="res://assets/journal_popup/journal_popup.gd" id="1_uwk4r"]
+[ext_resource type="Texture2D" uid="uid://boxrwvhx153y0" path="res://assets/panels/intro_panel/splash1.png" id="2_2f4p4"]
 [ext_resource type="Texture2D" uid="uid://chpm47uiou20j" path="res://assets/journal_popup/book_empty.png" id="2_eu3t1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eu3t1"]
@@ -19,6 +20,16 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0w8st"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oosd7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i0l5b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_66xxj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_us5v7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fb3g8"]
+
 [node name="JournalPopup" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -27,6 +38,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uwk4r")
+
+[node name="Bg" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_2f4p4")
+expand_mode = 2
+stretch_mode = 6
 
 [node name="BookBg" type="TextureRect" parent="."]
 layout_mode = 1
@@ -57,6 +79,7 @@ f
 f"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Image" type="TextureRect" parent="."]
 layout_mode = 1
@@ -127,10 +150,15 @@ text = "<<"
 
 [node name="Close" type="Button" parent="."]
 layout_mode = 1
-offset_left = 32.0
-offset_top = 32.0
-offset_right = 88.0
-offset_bottom = 88.0
+offset_left = 64.0
+offset_top = 65.0
+offset_right = 128.0
+offset_bottom = 128.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_oosd7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_i0l5b")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_66xxj")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_us5v7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fb3g8")
 text = "X"
 
 [connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
