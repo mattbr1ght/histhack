@@ -46,5 +46,5 @@ func take_screenshot():
 	var img = get_viewport().get_texture().get_image()
 	return ImageTexture.create_from_image(img)
 
-func add_journal(title, description, img = take_screenshot()):
+func add_journal(title, description, img):
 	StoryManager.journal.append([title, img, description])

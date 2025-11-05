@@ -20,7 +20,7 @@ func interact():
 		Signalbus.game_node.dialogue_item.display_dialog(\"cannot-complete-quest-yet\")	
 		return
 	QuestManager.finish_quest(quest_id)
-	Signalbus.add_journal(collectible_name, \"\")
+	Signalbus.add_journal(collectible_name, description, $TextureRect.texture)
 	done.emit()
 	queue_free()
 	pass
@@ -55,7 +55,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d8wni"]
 size = Vector2(231, 308)
 
-[node name="collectible" type="Area2D"]
+[node name="collectible2" type="Area2D"]
 script = SubResource("GDScript_ux2mw")
 metadata/collectible_name = "Madonna z dziecatkiem"
 metadata/quest_name = "madonna_found"
@@ -63,8 +63,17 @@ metadata/dialogue_line = "madonna"
 metadata/description = "Madonna byla ladna"
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
+visible = false
 sprite_frames = SubResource("SpriteFrames_0eljr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 1)
 shape = SubResource("RectangleShape2D_d8wni")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_s6o3o")

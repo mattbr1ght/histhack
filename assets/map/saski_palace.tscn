@@ -2,10 +2,10 @@
 
 [ext_resource type="TileSet" uid="uid://bucphppcgy5o7" path="res://assets/tilemap.tres" id="1_iwjla"]
 [ext_resource type="PackedScene" uid="uid://ccu3jh04opjpm" path="res://assets/characters/time_machine/time_machine.tscn" id="4_w2v38"]
-[ext_resource type="Script" path="res://assets/map/camera_pos.gd" id="5_2admo"]
+[ext_resource type="Script" uid="uid://vfskll8hfdon" path="res://assets/map/camera_pos.gd" id="5_2admo"]
 [ext_resource type="Script" path="res://assets/map/area_2d.gd" id="5_53cg0"]
-[ext_resource type="Script" path="res://assets/map/barrier.gd" id="5_nx4cj"]
-[ext_resource type="PackedScene" uid="uid://be5nq78yiil1i" path="res://scripts/minigames/safecracking/SafeCracking.tscn" id="6_53cg0"]
+[ext_resource type="Script" uid="uid://cdgit2nxyx71x" path="res://assets/map/barrier.gd" id="5_nx4cj"]
+[ext_resource type="PackedScene" uid="uid://dspmrpsekarnj" path="res://scripts/minigames/safecracking/safe_prefab.tscn" id="6_53cg0"]
 [ext_resource type="PackedScene" uid="uid://g21j5r6snl0m" path="res://scripts/findables/damagronostaj.tscn" id="7_nx4cj"]
 [ext_resource type="PackedScene" uid="uid://c3mvneucn0lub" path="res://scripts/findables/madonna.tscn" id="8_2hmg4"]
 [ext_resource type="PackedScene" uid="uid://nxvvcsh8baew" path="res://scripts/minigames/radio_frequency/radio_prefab.tscn" id="9_v716f"]
@@ -36,7 +36,7 @@ func interact():
 		Signalbus.game_node.dialogue_item.display_dialog(\"cannot-complete-quest-yet\")	
 		return
 	QuestManager.finish_quest(quest_id)
-	Signalbus.add_journal(collectible_name, \"\")
+	Signalbus.add_journal(collectible_name, description, $TextureRect.texture)
 	done.emit()
 	queue_free()
 	pass
@@ -64,7 +64,7 @@ tile_map_data = PackedByteArray("AAD/////AAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAAAAAA
 tile_set = ExtResource("1_iwjla")
 
 [node name="deco" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAADAPb/AQAAAAQAAGD+//D/AQAAAAQAAAABAPD/AQAAAAQAABADAPP/AQAAAAQAAEABAO//AQAAAAQAABD+/+//AQAAAAQAAAD4//P/AQAAAAQAAED4//b/AQAAAAQAAGD5//P/AQAAAAQAAED5//b/AQAAAAQAAGD6//P/AQAAAAQAAED6//b/AQAAAAQAAGAEAPP/AQAAAAQAAEAFAPP/AQAAAAQAAEAFAPb/AQAAAAQAAGAGAPP/AQAAAAQAAEAHAPP/AQAAAAQAAEAIAPP/AQAAAAQAAEABAO7/AQAAAAQAABD+/+7/AQAAAAQAAAAJAO//AAACAAAAAAAJAPD/AAACAAAAAAAJAPH/AAACAAAAAAAJAPL/AAACAAAAAAAJAPP/AQAAAAQAAEAJAPT/AAACAAAAAAAJAPX/AAACAAAAAAAJAPb/AQAAAAQAAGAJAPf/AAACAAAAAAAJAPj/AAACAAAAAAAJAO7/AAACAAAAAAD+//H/AQAAAAQAAEABAPj/AQAAAAQAAGABAPH/AQAAAAQAAEAKAPb/AQAAAAQAAGD1//b/AQAAAAQAAGD2//b/AQAAAAQAAGD3//b/AQAAAAQAAGD7//b/AQAAAAQAAGD8//b/AQAAAAQAAGD1//P/AQAAAAQAAED2//P/AQAAAAQAAED3//P/AQAAAAQAAED7//P/AQAAAAQAAED8//P/AQAAAAQAAEAKAPP/AQAAAAQAAED9//L/AQAAAAQAAEACAPL/AQAAAAQAAEACAPf/AQAAAAQAAGD9//f/AQAAAAQAAGD///P/AQAGAAMAAAAAAPP/AQAFAAMAAAD+//T/AQADAAQAAAD+//X/AQAEAAQAAAABAPT/AQADAAQAABABAPX/AQAEAAQAABAAAPb/AQAFAAQAAAD///b/AQAGAAQAAAD+//n/AQAAAAQAAAABAAMAAQAAAAQAABD+/wQAAQAAAAQAAAABAAIAAQAAAAQAABD+/wMAAQAAAAQAAAD+/wIAAQAAAAQAAAABAAAAAQAAAAQAABD+/wEAAQAAAAQAAAD+/wAAAQAAAAQAAAABAAEAAQAAAAQAABABAP//AQAAAAQAABD+////AQAAAAQAAAABAP7/AQAAAAQAABD+//7/AQAAAAQAAAABAP3/AQAAAAQAABABAPv/AQAAAAQAABD+//v/AQAAAAQAAAABAPr/AQAAAAQAABD+//r/AQAAAAQAAAABAPz/AQAAAAQAABD+//z/AQAAAAQAAAD+//3/AQAAAAQAAAABAPn/AQAAAAQAABAJAPn/AAACAAAAAAD+/wYAAQAAAAQAAAABAAUAAQAAAAQAABD+/wUAAQAAAAQAAAABAAYAAQAAAAQAABABAAQAAQAAAAQAABD+//j/AQAAAAQAAGAEAPb/AQAAAAQAAGAGAPb/AQAAAAQAAGAHAPb/AQAAAAQAAGAIAPb/AQAAAAQAAGABAO3/AQAAAAQAABD+/+3/AQAAAAQAAAA=")
+tile_map_data = PackedByteArray("AAADAPb/AQAAAAQAAGD+//D/AQAAAAQAAAABAPD/AQAAAAQAABADAPP/AQAAAAQAAEABAO//AQAAAAQAABD+/+//AQAAAAQAAAD4//P/AQAAAAQAAED4//b/AQAAAAQAAGD5//P/AQAAAAQAAED5//b/AQAAAAQAAGD6//P/AQAAAAQAAED6//b/AQAAAAQAAGAEAPP/AQAAAAQAAEAFAPP/AQAAAAQAAEAFAPb/AQAAAAQAAGAGAPP/AQAAAAQAAEAHAPP/AQAAAAQAAEAIAPP/AQAAAAQAAEABAO7/AQAAAAQAABD+/+7/AQAAAAQAAAAJAO//AAACAAAAAAAJAPD/AAACAAAAAAAJAPH/AAACAAAAAAAJAPL/AAACAAAAAAAJAPP/AQAAAAQAAEAJAPT/AAACAAAAAAAJAPX/AAACAAAAAAAJAPb/AQAAAAQAAGAJAPf/AAACAAAAAAAJAPj/AAACAAAAAAAJAO7/AAACAAAAAAD+//H/AQAAAAQAAEABAPj/AQAAAAQAAGABAPH/AQAAAAQAAEAKAPb/AQAAAAQAAGD1//b/AQAAAAQAAGD2//b/AQAAAAQAAGD3//b/AQAAAAQAAGD7//b/AQAAAAQAAGD8//b/AQAAAAQAAGD1//P/AQAAAAQAAED2//P/AQAAAAQAAED3//P/AQAAAAQAAED7//P/AQAAAAQAAED8//P/AQAAAAQAAEAKAPP/AQAAAAQAAED9//L/AQAAAAQAAEACAPL/AQAAAAQAAEACAPf/AQAAAAQAAGD9//f/AQAAAAQAAGD///P/AQAGAAMAAAAAAPP/AQAFAAMAAAD+//T/AQADAAQAAAD+//X/AQAEAAQAAAABAPT/AQADAAQAABABAPX/AQAEAAQAABAAAPb/AQAFAAQAAAD///b/AQAGAAQAAAD+//n/AQAAAAQAAAABAAMAAQAAAAQAABD+/wQAAQAAAAQAAAABAAIAAQAAAAQAABD+/wMAAQAAAAQAAAD+/wIAAQAAAAQAAAABAAAAAQAAAAQAABD+/wEAAQAAAAQAAAD+/wAAAQAAAAQAAAABAAEAAQAAAAQAABABAP//AQAAAAQAABD+////AQAAAAQAAAABAP7/AQAAAAQAABD+//7/AQAAAAQAAAABAP3/AQAAAAQAABABAPv/AQAAAAQAABD+//v/AQAAAAQAAAABAPr/AQAAAAQAABD+//r/AQAAAAQAAAABAPz/AQAAAAQAABD+//z/AQAAAAQAAAD+//3/AQAAAAQAAAABAPn/AQAAAAQAABAJAPn/AAACAAAAAAD+/wYAAQAAAAQAAAABAAUAAQAAAAQAABD+/wUAAQAAAAQAAAABAAYAAQAAAAQAABABAAQAAQAAAAQAABD+//j/AQAAAAQAAGAEAPb/AQAAAAQAAGAGAPb/AQAAAAQAAGAHAPb/AQAAAAQAAGAIAPb/AQAAAAQAAGABAO3/AQAAAAQAABD+/+3/AQAAAAQAAAAHAPT/AQAHAAEAAFAHAPX/AQAHAAEAAFA=")
 tile_set = ExtResource("1_iwjla")
 
 [node name="deco2" type="TileMapLayer" parent="."]
@@ -115,11 +115,12 @@ shape = SubResource("RectangleShape2D_nx4cj")
 visible = false
 position = Vector2(1.1920929e-07, -1181)
 scale = Vector2(0.2, 0.2)
+metadata/dialogue_line = "dama_z_gronostajem"
+metadata/description = "Dzieło zostało ukryte w Sieniawie, po agresji III Rzeszy na Polskę. Niestety żołnierze Rzeszy znaleźli kryjówkę i ukradli obraz wywożąc go w głąb Niemiec. Po wojnie w  1945 roku komisja polsko-amerykańska odnalazła dzieło i już rok później obraz wrócił do Polski.  Obecnie \"Damę z Gronostajem\" możemy obejrzeć w Muzeum Książąt Czartoryskich w Krakowie."
 
 [node name="SafePrefab" parent="dama_quest" instance=ExtResource("6_53cg0")]
-position = Vector2(1, -1172)
+position = Vector2(3, -1185)
 metadata/quest_name = "dama_z_gronostajem_unlocked"
-metadata/dialogue_line = "dama_z_gronostajem"
 
 [node name="madonna" type="Node" parent="."]
 
@@ -128,6 +129,7 @@ visible = false
 position = Vector2(0, -701.99994)
 scale = Vector2(0.2, 0.2)
 script = SubResource("GDScript_2hmg4")
+metadata/description = "Przed II wojną światową znajdował się w Kolekcji Lubomirskich w Przeworsku, skąd został zrabowany przez Niemców. Po wielu latach odnaleziono go w Japonii, gdzie wystawiono na aukcji w Tokio w 2022 roku – był to pierwszy przypadek odzyskania polskiej straty wojennej z Dalekiego Wschodu. Dzięki międzynarodowej współpracy obraz powrócił do Polski w 2023 roku. Obecnie znajduje się w zbiorach Muzeum Książąt Lubomirskich, będącego oddziałem Zakładu Narodowego im. Ossolińskich we Wrocławiu."
 
 [node name="RadioPrefab" parent="madonna" instance=ExtResource("9_v716f")]
 position = Vector2(-91, -720)
@@ -139,10 +141,12 @@ metadata/quest_name = "madonna_unlocked"
 visible = false
 position = Vector2(415, -759.00006)
 scale = Vector2(0.2, 0.2)
+metadata/description = "Dzieło zostało zrabowane przez Niemców podczas II wojny światowej i przez dekady uchodziło za utracone. Zostało odnalezione w niemieckim domu aukcyjnym w 2010 roku, a dzięki staraniom Ministerstwa Kultury i wsparciu PZU powróciło do Polski w 2011 roku. Obecnie obraz znajduje się w zbiorach Muzeum Narodowego w Warszawie, gdzie można go podziwiać jako jedno z najważniejszych dzieł polskiego realizmu."
 
 [node name="LockpickPrefab" parent="zydowka" instance=ExtResource("11_hbg8u")]
 position = Vector2(476.00003, -703)
 scale = Vector2(1.5, 1.5)
+metadata/quest_name = "zydowka_unlocked"
 
 [connection signal="area_entered" from="collidable/CameraPos" to="collidable/CameraPos" method="_on_area_entered"]
 [connection signal="area_exited" from="collidable/CameraPos" to="collidable/CameraPos" method="_on_area_exited"]

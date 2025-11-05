@@ -1,10 +1,11 @@
 {
 	"arcana_intro_part_1": [
+		"Nacisnij spacje, aby kontynuować",
 		"Warszawa...",
 		"Miasto, które pamięta więcej, niż chce powiedzieć.",
 		"Kamienice szepczą, jeśli wiesz, jak ich słuchać.",
 		"Nie każda strata jest wieczna...",
-		"Czasem przeszłość sama cię3 odnajduje."
+		"Czasem przeszłość sama cię odnajduje."
 	],
 	"arcana_intro_part_2": [
 		"Pod gruzami miasta wciąż drzemie echo dawnych dni.",
@@ -118,5 +119,26 @@
 		"Po wojnie w  1945 roku komisja polsko-amerykańska odnalazła dzieło",
 		"i już rok później obraz wrócił do Polski.",
 		"Obecnie 'Damę z Gronostajem' możemy obejrzeć w Muzeum Książąt Czartoryskich w Krakowie."
+	],
+	"zydowka": [
+		"Znaleziono obraz 'Zydowka z pomaranczami'.",
+		"Dzieło zostało zrabowane przez Niemców podczas II wojny światowej",
+		"i przez dekady uchodziło za utracone.", 
+		"Zostało odnalezione w niemieckim domu aukcyjnym w 2010 roku,",
+		"a dzięki staraniom Ministerstwa Kultury i wsparciu",
+		"PZU powróciło do Polski w 2011 roku.",
+		"Obecnie obraz znajduje się w zbiorach Muzeum Narodowego w Warszawie,",
+		"gdzie można go podziwiać jako jedno z najważniejszych dzieł polskiego realizmu."
+	],
+	"madonna": [
+		"Znaleziono obraz 'Madonna z dziecatkiem'.",
+		"Przed II wojną światową znajdował się w Kolekcji Lubomirskich",
+		"w Przeworsku, skąd został zrabowany przez Niemców.",
+		"Po wielu latach odnaleziono go w Japonii,",
+		"gdzie wystawiono na aukcji w Tokio w 2022 roku",
+		"– był to pierwszy przypadek odzyskania polskiej straty wojennej z Dalekiego Wschodu.",
+		"Dzięki międzynarodowej współpracy obraz powrócił do Polski w 2023 roku.",
+		"Obecnie znajduje się w zbiorach Muzeum Książąt Lubomirskich,",
+		"będącego oddziałem Zakładu Narodowego im. Ossolińskich we Wrocławiu."
 	]
 }
