@@ -36,7 +36,7 @@ func interact():
 		Signalbus.game_node.dialogue_item.display_dialog(\"cannot-complete-quest-yet\")	
 		return
 	QuestManager.finish_quest(quest_id)
-	Signalbus.add_journal(collectible_name, \"\")
+	Signalbus.add_journal(collectible_name, description, $TextureRect.texture)
 	done.emit()
 	queue_free()
 	pass

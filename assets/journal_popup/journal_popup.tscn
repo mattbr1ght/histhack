@@ -110,6 +110,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 horizontal_alignment = 1
+autowrap_mode = 2
+clip_text = true
 
 [node name="Next" type="Button" parent="."]
 layout_mode = 1

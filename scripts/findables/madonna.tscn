@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7m7pyd1ljcl2"]
+[gd_scene load_steps=5 format=3 uid="uid://c3mvneucn0lub"]
 
 [ext_resource type="Texture2D" uid="uid://tf26ev6f7ptk" path="res://scripts/findables/madonnazdzieciatkiem.png" id="1_s6o3o"]
 
@@ -55,7 +55,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d8wni"]
 size = Vector2(231, 308)
 
-[node name="collectible" type="Area2D"]
+[node name="collectible2" type="Area2D"]
 script = SubResource("GDScript_ux2mw")
 metadata/collectible_name = "Madonna z dziecatkiem"
 metadata/quest_name = "madonna_found"
