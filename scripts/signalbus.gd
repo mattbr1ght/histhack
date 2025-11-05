@@ -8,7 +8,8 @@ var scene_root
 var fade = load("res://assets/fade/fade.tscn")
 var scenes = {
 	"mokotow": [load("res://assets/map/mokotow.tscn")],
-	"saski_palace": [load("res://assets/map/saski_palace.tscn")]
+	"saski_palace": [load("res://assets/map/saski_palace.tscn")],
+	"staniewski_circus": [load("res://assets/map/staniewski_circus.tscn")]
 }
 
 var safe_cracking: Node

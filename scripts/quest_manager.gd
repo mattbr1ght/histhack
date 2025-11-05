@@ -1,7 +1,14 @@
 extends Node
 
 var quest_text: RichTextLabel
-var current_quests = [{"name": "Zdobadz dame z gronotajem", "id": "dama_z_gronostajem_found"}, {"name": "Odblokuj sejf z dama z gronostajem", "id": "dama_z_gronostajem_unlocked"}]
+var current_quests = [
+	{"name": "Zdobadz Dame z gronotajem", "id": "dama_z_gronostajem_found"}, 
+	{"name": "Odblokuj sejf z Dama z gronostajem", "id": "dama_z_gronostajem_unlocked"},
+	{"name": "Zdobadz Madonne z dzieciatkiem", "id": "madonna_found"}, 
+	{"name": "Odblokuj pokoj z Madonna z dzieciatkiem", "id": "madonna_unlocked"},
+	{"name": "Zdobadz Zydowke z pomaranczami", "id": "zydowka_found"}, 
+	{"name": "Skontaktuj sie z konserwatorem Zydowki z pomaranczami", "id": "zydowka_unlocked"},
+]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -24,4 +31,6 @@ func render():
 	
 func finish_quest(quest_id):
 	current_quests = current_quests.filter(func(quest): return quest.id != quest_id)
+	if current_quests.is_empty():
+		StoryManager.advance("map_first")
 	self.render()

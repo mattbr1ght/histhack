@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://0ew1se0qnlas"]
+[gd_scene load_steps=18 format=3 uid="uid://0ew1se0qnlas"]
 
 [ext_resource type="Script" uid="uid://dhs4vhjyssvq7" path="res://assets/journal_popup/journal_popup.gd" id="1_uwk4r"]
 [ext_resource type="Texture2D" uid="uid://boxrwvhx153y0" path="res://assets/panels/intro_panel/splash1.png" id="2_2f4p4"]
 [ext_resource type="Texture2D" uid="uid://chpm47uiou20j" path="res://assets/journal_popup/book_empty.png" id="2_eu3t1"]
+[ext_resource type="AudioStream" uid="uid://c1lpx0vk48krm" path="res://assets/journal_popup/page_flip.mp3" id="4_17gpb"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eu3t1"]
 
@@ -40,6 +41,7 @@ grow_vertical = 2
 script = ExtResource("1_uwk4r")
 
 [node name="Bg" type="TextureRect" parent="."]
+modulate = Color(0.30323282, 0.30323282, 0.30323282, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -160,6 +162,9 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_66xxj")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_us5v7")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_fb3g8")
 text = "X"
+
+[node name="PageFlip" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_17gpb")
 
 [connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
 [connection signal="pressed" from="Prev" to="." method="_on_prev_pressed"]

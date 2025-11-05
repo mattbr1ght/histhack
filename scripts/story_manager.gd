@@ -24,7 +24,7 @@ func _physics_process(delta: float) -> void:
 	if saski_palace_zoom_enabled:
 		var zoom = clamp(
 	(10 - abs(1 - abs(Signalbus.game_node.player.position.y / 128.0)) * 1.35),
-	0.65,
+	1.00,
 	1.50
 )
 
@@ -79,8 +79,8 @@ func stage_map_first():
 func stage_saski_palace():
 	var time_machine = Signalbus.game_node.current_area.get_node("TimeMachine/Area2D")
 	await time_machine.done
-	saski_palace_zoom_enabled = true
 	await Signalbus.fade.fade_out()
+	saski_palace_zoom_enabled = true
 	#Signalbus.game_node.current_area.get_node("Barrier").queue_free()
 	await get_tree().create_timer(1.0).timeout
 	Signalbus.fade.fade_in()
