@@ -13,6 +13,7 @@ func _input(event: InputEvent) -> void:
 		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			if get_parent().has_method("goto"):
 				get_parent().goto(destination)
+				destination = ""
 			else:
 				push_warning("Parent node has no 'goto()' method!")
 			done = true
