@@ -146,6 +146,7 @@ text = "[ ] do this
 horizontal_alignment = 2
 
 [node name="Journal" type="Button" parent="Camera2D/Control/CanvasLayer"]
+z_index = 2035
 offset_left = 64.0
 offset_top = 64.0
 offset_right = 128.0
@@ -172,5 +173,6 @@ volume_db = -5.0
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
+[connection signal="pressed" from="Camera2D/Control/CanvasLayer/Journal" to="." method="_on_journal_pressed"]
 [connection signal="area_entered" from="Player" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_shape_exited" from="Player" to="." method="_on_area_2d_area_shape_exited"]

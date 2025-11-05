@@ -36,5 +36,6 @@ func _on_prev_pressed() -> void:
 
 
 func _on_close_pressed() -> void:
+	Signalbus.game_node.player.ui.get_node("Journal").visible = true
 	queue_free()
 	pass # Replace with function body.

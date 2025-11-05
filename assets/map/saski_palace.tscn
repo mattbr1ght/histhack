@@ -3,9 +3,9 @@
 [ext_resource type="TileSet" uid="uid://bucphppcgy5o7" path="res://assets/tilemap.tres" id="1_iwjla"]
 [ext_resource type="PackedScene" uid="uid://ccu3jh04opjpm" path="res://assets/characters/time_machine/time_machine.tscn" id="4_w2v38"]
 [ext_resource type="Script" uid="uid://vfskll8hfdon" path="res://assets/map/camera_pos.gd" id="5_2admo"]
-[ext_resource type="Script" path="res://assets/map/area_2d.gd" id="5_53cg0"]
-[ext_resource type="Script" uid="uid://cdgit2nxyx71x" path="res://assets/map/barrier.gd" id="5_nx4cj"]
-[ext_resource type="PackedScene" uid="uid://dspmrpsekarnj" path="res://scripts/safe_prefab.tscn" id="6_53cg0"]
+[ext_resource type="Script" uid="uid://uxt2pt11kn8m" path="res://assets/map/area_2d.gd" id="5_53cg0"]
+[ext_resource type="Script" path="res://assets/map/barrier.gd" id="5_nx4cj"]
+[ext_resource type="PackedScene" uid="uid://be5nq78yiil1i" path="res://scripts/minigames/safecracking/SafeCracking.tscn" id="6_53cg0"]
 [ext_resource type="PackedScene" uid="uid://g21j5r6snl0m" path="res://scripts/findables/damagronostaj.tscn" id="7_nx4cj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w2v38"]

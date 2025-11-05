@@ -97,5 +97,5 @@ func toggle_old_filter() -> void:
 
 func _on_journal_pressed() -> void:
 	Signalbus.game_node.canvas_layer.add_child(StoryManager.journal_popup.instantiate())
-	self.visible = false
+	ui.get_node("Journal").visible = false
 	pass # Replace with function body.
