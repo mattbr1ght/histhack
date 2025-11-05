@@ -9,7 +9,7 @@ var game
 var saski_palace_zoom_enabled = false
 
 signal saski_after_time_travel
-var journal = [["witam", null, "asdsasadadsd asa"]] # [title, img, desc]
+var journal = [["Dziennik zaginionych dzieł i zabytków", null, ""]] # [title, img, desc]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cp0fgf4ppyasx"]
+[gd_scene load_steps=22 format=3 uid="uid://cp0fgf4ppyasx"]
 
 [ext_resource type="Script" uid="uid://8omttbvah2xw" path="res://assets/player/player.gd" id="1_m2mll"]
 [ext_resource type="Texture2D" uid="uid://ci7r236u0q7dw" path="res://assets/characters/mc/mc_back_1.png" id="2_m2mll"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://clg8x0ov06yws" path="res://assets/characters/mc/mc_side_2.png" id="9_4t7cd"]
 [ext_resource type="Texture2D" uid="uid://bwgughh4hn4kl" path="res://assets/characters/mc/mc_side_3.png" id="10_hai6l"]
 [ext_resource type="Material" uid="uid://b04sots1qhhy4" path="res://assets/shaders/old_filter.tres" id="11_hai6l"]
+[ext_resource type="Texture2D" uid="uid://cgkjc3lime7m6" path="res://assets/journal_popup/book_icon.png" id="12_vlpqo"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0eov8"]
 load_path = "res://.godot/imported/mc_front_1.png-6875dcdbf4b7d7033d460cfc6aa2d115.ctex"
@@ -76,6 +77,16 @@ animations = [{
 "name": &"w_side",
 "speed": 10.0
 }]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vlpqo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0eov8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g7aau"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d61i2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yx3jh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jggqw"]
 size = Vector2(11, 5)
@@ -146,13 +157,20 @@ text = "[ ] do this
 horizontal_alignment = 2
 
 [node name="Journal" type="Button" parent="Camera2D/Control/CanvasLayer"]
-z_index = 2035
+z_index = -1
 offset_left = 64.0
 offset_top = 64.0
 offset_right = 128.0
-offset_bottom = 128.0
-theme_override_font_sizes/font_size = 31
-text = "📚"
+offset_bottom = 129.0
+mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vlpqo")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0eov8")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_g7aau")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_d61i2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yx3jh")
+icon = ExtResource("12_vlpqo")
+icon_alignment = 1
+expand_icon = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.5, 28.5)
