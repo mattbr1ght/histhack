@@ -8,7 +8,7 @@ size = Vector2(38, 32)
 
 [node name="RadioPrefab" type="Area2D"]
 script = ExtResource("1_8snh1")
-metadata/collectible_name = "Sejf"
+metadata/collectible_name = "Radio"
 metadata/quest_name = "safe_quest"
 metadata/dialogue_line = "safe_quest"
 
